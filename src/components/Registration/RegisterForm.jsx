@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
@@ -9,7 +10,8 @@ import {
   Text,
   NavLink,
   Button,
-  Error,
+  ErrorMessage,
+  SuccessMessage
 } from './RegisterForm.styled';
 
 const schema = yup
@@ -30,6 +32,7 @@ const schema = yup
   .required();
 
 export const RegisterForm = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const {
     register,
     handleSubmit,
@@ -43,8 +46,30 @@ export const RegisterForm = () => {
     },
     resolver: yupResolver(schema),
   });
-  const onSubmit = data => console.log(data);
-  console.log(watch('Name'));
+  const onSubmit = data => {
+    console.log(data);
+}
+
+const handleButtonClick = () => {
+  setIsSubmitted(true);
+};
+  
+  const renderValidationMessage = (field) => {
+    if (!isSubmitted) return null;
+    const value = watch(field);
+    console.log(value);
+    const error = errors[field];
+
+    if (value && !error) {
+      return <SuccessMessage>Success {field}</SuccessMessage>;
+    } else if (error) {
+      return <ErrorMessage>Error {field}</ErrorMessage>;
+    }
+    return null;
+  };
+
+
+
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -56,27 +81,32 @@ export const RegisterForm = () => {
       <Input
         placeholder="Name"
         {...register('Name')}
-        hasError={!!errors.Name}
-        isValid={watch('Name') && !errors.Name}
+        data-has-error={!!errors.Name}
+        data-is-valid={watch('Name') && !errors.Name}
       />
-      {errors.Name && <Error>{errors.Name.message}</Error>}
+      {/* {errors.Name && <Error>{errors.Name.message}</Error>} */}
+      {renderValidationMessage('Name')}
       <Input
         placeholder="Email"
         {...register('Email')}
-        hasError={!!errors.Email}
-        isValid={watch('Email') && !errors.Email}
+        data-has-error={!!errors.Email}
+        data-is-valid={watch('Email') && !errors.Email}
       />
-      {errors.Email && <Error>{errors.Email.message}</Error>}
+      {/* {errors.Email && <Error>{errors.Email.message}</Error>} */}
+      {renderValidationMessage('Email')}
       <Input
         placeholder="Password"
         {...register('Password')}
-        hasError={!!errors.Password}
-        isValid={watch('Password') && !errors.Password}
+        data-has-error={!!errors.Password}
+        data-is-valid={watch('Password') && !errors.Password}
       />
-      {errors.Password && <Error>{errors.Password.message}</Error>}
+      {/* {errors.Password && <Error>{errors.Password.message}</Error>} */}
+      {renderValidationMessage('Password')}
 
-      <Button type="submit">Register</Button>
+      <Button type="submit" onClick={handleButtonClick}>Register</Button>
       <NavLink>Login</NavLink>
     </Form>
   );
 };
+
+

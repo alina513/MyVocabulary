@@ -38,11 +38,12 @@ export const Input = styled.input`
   width: 500px;
   height: 56px;
   border-radius: 15px;
+
   border: 1px solid
     ${p =>
-      p.isValid
-        ? p.theme.colors.greenHover
-        : p.hasErrorr
+      p['data-is-valid']
+        ? p.theme.colors.green
+        : p['data-has-error']
         ? p.theme.colors.red
         : 'rgba(18, 20, 23, 0.1)'};
 
@@ -52,7 +53,7 @@ export const Input = styled.input`
 
   &:hover,
   &:focus {
-    border-color: ${p => p.theme.colors.green};
+    border-color: ${p => p.theme.colors.greenHover};
   }
 `;
 export const NavLink = styled(Link)`
@@ -90,6 +91,10 @@ export const Button = styled.button`
   }
 `;
 
-export const Error = styled.span`
+export const SuccessMessage = styled.span`
+  color: ${p => p.theme.colors.green};
+`;
+
+export const ErrorMessage = styled.span`
   color: ${p => p.theme.colors.red};
 `;
