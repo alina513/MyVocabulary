@@ -1,15 +1,15 @@
-import { Wrapper, Logo, Svg, Text, List, ItemText } from "./Registration.styled";
-import { RegisterForm } from "./RegisterForm";
+import { Wrapper, Logo, Svg, Text, List, ItemText } from "./Login.styled";
+import { LoginForm } from "./LoginForm";
 import sprite from "../../assets/sprite.svg"
 
-export const Registration = () => {
+export const Login = () => {
     return(
         <Wrapper>
             <Logo>
                 <Svg><use xlinkHref={sprite + "#icon-logo"}></use></Svg>
                 <Text>VocabBuilder</Text>
             </Logo>
-            <RegisterForm/>
+            <LoginForm/>
             <List>
 <ItemText>Word</ItemText>
 <ItemText>Translation</ItemText>

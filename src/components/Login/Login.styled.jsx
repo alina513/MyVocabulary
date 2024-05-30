@@ -21,7 +21,7 @@ export const Logo = styled.div`
 display: flex;
 align-items: center;
 gap: 16px;
-// margin-bottom: 64px;
+margin-bottom: 64px;
 `
 export const Svg = styled.svg`
 width: 40px;
@@ -52,4 +52,3 @@ font-size: 16px;
   padding-left: 5px;
   padding-right: 10px;
 `
-

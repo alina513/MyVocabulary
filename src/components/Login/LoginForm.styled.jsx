@@ -8,7 +8,6 @@ export const Form = styled.form`
   border-radius: 30px;
   background-color: rgba(133, 170, 159, 0.1);
   padding: 48px 64px;
-  margin-top: 64px;
 `;
 
 export const Title = styled.h2`

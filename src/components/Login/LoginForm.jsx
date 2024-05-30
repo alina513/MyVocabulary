@@ -16,11 +16,10 @@ import {
   Wrapper,
   Svg,
   BtnEye,
-} from './RegisterForm.styled';
+} from './LoginForm.styled';
 
 const schema = yup
   .object({
-    Name: yup.string().required('Name is required'),
     Email: yup
       .string()
       .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Email is not valid')
@@ -35,7 +34,7 @@ const schema = yup
   })
   .required();
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVisibleEyes, setIsVisibleEyes] = useState(false);
 
@@ -80,18 +79,10 @@ export const RegisterForm = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Title>Register</Title>
+      <Title>Login</Title>
       <Text>
-        To start using our services, please fill out the registration form
-        below. All fields are mandatory:
+      Please enter your login details to continue using our service:
       </Text>
-      <Input
-        placeholder="Name"
-        {...register('Name')}
-        data-has-error={!!errors.Name}
-        data-is-valid={watch('Name') && !errors.Name}
-      />
-      {renderValidationMessage('Name')}
       <Input
         placeholder="Email"
         {...register('Email')}
@@ -122,9 +113,9 @@ export const RegisterForm = () => {
       </Wrapper>
 
       <Button type="submit" onClick={handleButtonClick}>
-        Register
+        Login
       </Button>
-      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/register">Register</NavLink>
     </Form>
   );
 };
