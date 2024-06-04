@@ -1,5 +1,7 @@
 import Modal from 'react-modal';
 import * as yup from 'yup';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Wrapper,
   Title,
@@ -30,12 +32,12 @@ Modal.setAppElement('#modal');
 
 const schema = yup
   .object({
-    en: yup
+    eng: yup
       .string()
       .matches(/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/
       , 'Text is not valid')
       .required('Is required'),
-    ua: yup
+    ukr: yup
       .string()
       .matches(
         /^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u,
@@ -70,29 +72,40 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
 
   const token = useSelector(selectToken);
 const dispatch = useDispatch();
-  const handleSubmit =  event => {
-    event.preventDefault();
-    const en = event.target.elements.eng.value;
-    const ua = event.target.elements.ukr.value;
-    const category = event.target.elements.categories.value;
-    const isIrregular = event.target.elements.verb.value;
-    // const existingContact = contacts.some(contact => contact.name === name);
-    // if (existingContact) {
-    //   // alert(`Contact with name '${name}' already exists!`);
 
-    //   const notify = name =>
-    //     toast.error(`Contact with name '${name}' already exists!`);
-    //     notify(name);
-    //   event.target.reset();
+const { register, handleSubmit, control, reset, formState: { errors } } = useForm({
+  resolver: yupResolver(schema),
+});
+
+  // const handleSubmit =  event => {
+  //   event.preventDefault();
+  //   const en = event.target.elements.eng.value;
+  //   const ua = event.target.elements.ukr.value;
+  //   const category = event.target.elements.categories.value;
+  //   const isIrregular = event.target.elements.verb.value;
+  //   // const existingContact = contacts.some(contact => contact.name === name);
+  //   // if (existingContact) {
+  //   //   // alert(`Contact with name '${name}' already exists!`);
+
+  //   //   const notify = name =>
+  //   //     toast.error(`Contact with name '${name}' already exists!`);
+  //   //     notify(name);
+  //   //   event.target.reset();
       
-    //   return;
-    // }
+  //   //   return;
+  //   // }
 
-    dispatch(addWord({en, ua, category, isIrregular, token }));
-    event.target.reset();
+  //   dispatch(addWord({en, ua, category, isIrregular, token }));
+  //   event.target.reset();
+  // };
+
+
+  const onSubmit = (data) => {
+    dispatch(addWord({ ...data, token }));
+    toast.success('Word added successfully!');
+    reset();
+    setIsOpenModalLogin(false);
   };
-
-
   
 
   return (

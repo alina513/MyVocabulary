@@ -3,7 +3,7 @@ import { Input, Select } from "./Filters.styled"
 export const Filters = () =>{
     return(
         <>
-        <Input/>
+        <Input placeholder="Find the word"/>
         <Select/>
         </>
     )
