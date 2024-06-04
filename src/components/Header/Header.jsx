@@ -3,7 +3,9 @@ import { UserBar } from "./UserBar";
 import { Container } from "./Headeer.styled";
 import sprite from "../../assets/sprite.svg";
 import { Logo, Svg, Text } from "../Registration/Registration.styled";
+
 export const Header = () => {
+   
     return (
         <Container>
             <Logo>
@@ -11,7 +13,7 @@ export const Header = () => {
                 <Text>VocabBuilder</Text>
             </Logo>
         <UserNav/>
-        <UserBar/>
+        <UserBar />
         </Container>
     )
 }

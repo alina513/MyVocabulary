@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import sprite from '../../assets/sprite.svg';
+import { signUp } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
 
 import {
   Form,
@@ -20,12 +22,12 @@ import {
 
 const schema = yup
   .object({
-    Name: yup.string().required('Name is required'),
-    Email: yup
+    name: yup.string().required('Name is required'),
+    email: yup
       .string()
       .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Email is not valid')
       .required('Email is required'),
-    Password: yup
+    password: yup
       .string()
       .matches(
         /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
@@ -38,6 +40,7 @@ const schema = yup
 export const RegisterForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVisibleEyes, setIsVisibleEyes] = useState(false);
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -46,14 +49,15 @@ export const RegisterForm = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      Name: '',
-      Email: '',
-      Password: '',
+      name: '',
+      email: '',
+      password: '',
     },
     resolver: yupResolver(schema),
   });
   const onSubmit = data => {
-    console.log(data);
+    console.log("DATA", data);
+    dispatch(signUp(data))
   };
 
   const handleButtonClick = () => {
@@ -87,27 +91,27 @@ export const RegisterForm = () => {
       </Text>
       <Input
         placeholder="Name"
-        {...register('Name')}
-        data-has-error={!!errors.Name}
-        data-is-valid={watch('Name') && !errors.Name}
+        {...register('name')}
+        data-has-error={!!errors.name}
+        data-is-valid={watch('name') && !errors.name}
       />
-      {renderValidationMessage('Name')}
+      {renderValidationMessage('name')}
       <Input
         placeholder="Email"
-        {...register('Email')}
-        data-has-error={!!errors.Email}
-        data-is-valid={watch('Email') && !errors.Email}
+        {...register('email')}
+        data-has-error={!!errors.email}
+        data-is-valid={watch('email') && !errors.email}
       />
-      {renderValidationMessage('Email')}
+      {renderValidationMessage('email')}
       <Wrapper>
         <Input
           placeholder="Password"
-          {...register('Password')}
+          {...register('password')}
           type={isVisibleEyes ? 'text' : 'password'}
-          data-has-error={!!errors.Password}
-          data-is-valid={watch('Password') && !errors.Password}
+          data-has-error={!!errors.password}
+          data-is-valid={watch('password') && !errors.password}
         />
-        {renderValidationMessage('Password')}
+        {renderValidationMessage('password')}
         <BtnEye type="button" onClick={handleVisibleEye}>
           {isVisibleEyes ? (
             <Svg>

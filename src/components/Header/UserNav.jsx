@@ -2,9 +2,9 @@ import { Navigation, Link } from "./UserNav.styled"
 export const UserNav = () => {
     return(
         <Navigation>
-            <Link>Dictionary</Link>
-            <Link>Recommend</Link>
-            <Link>Training</Link>
+            <Link to="/dictionary">Dictionary</Link>
+            <Link to="/recommend">Recommend</Link>
+            <Link to="/training">Training</Link>
         </Navigation>
     )
 }
