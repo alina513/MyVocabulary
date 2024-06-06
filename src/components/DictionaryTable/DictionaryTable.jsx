@@ -40,7 +40,6 @@ const columns = [
 export function DictionaryTable() {
   const words = useSelector(selectWords);
   const token = useSelector(selectToken);
-  console.log(token);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchWords({ token }));

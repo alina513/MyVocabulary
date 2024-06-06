@@ -10,6 +10,7 @@ height: 48px;
 font-weight: 500;
 font-size: 16px;
 line-height: 150%;
+display: block;
 color: ${(p)=> p.theme.colors.black};
 `
 
@@ -24,4 +25,30 @@ font-size: 16px;
 line-height: 150%;
 color: ${(p)=> p.theme.colors.black};
 margin-left: 8px;
+display: block;
+`
+export const Container = styled.div`
+display: flex;
+`
+
+export const Radio = styled.input`
+display: flex;
+`
+export const RadioContainer = styled.div`
+box-sizing: border-box;
+height: 48px;
+padding: 12px 0px;
+display: flex;
+gap: 16px;
+gap: 16px;
+margin-bottom: 22px;
+margin-top: 8px;
+margin-left: 8px;
+
+`
+export const Label = styled.label`
+font-weight: 400;
+font-size: 16px;
+text-align: center;
+color: ${(p)=> p.theme.colors.black};
 `

@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchWords, addWord } from './operation';
+import { fetchWords, addWord, fetchCategories } from './operation';
 
 const initialState = {
  words : [],
- isLoading: false
+ isLoading: false,
+ categories: [],
 };
 
 const wordsSlice = createSlice({
@@ -30,6 +31,9 @@ const wordsSlice = createSlice({
       })
       .addCase(addWord.rejected, (state) => {
         state.isLoading = false;
+      })
+      .addCase(fetchCategories.fulfilled, (state, action) => {
+        state.categories = action.payload;
       });
   },
 });

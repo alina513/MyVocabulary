@@ -41,3 +41,18 @@ export const fetchWords = createAsyncThunk(
     }
   );
 
+  export const fetchCategories = createAsyncThunk(
+    'words/fetchCategories',
+    async (token, thunkAPI) => {
+      try {
+      
+        const response = await axios.get('/words/categories');
+        setAuthHeader(response.data.token);
+        
+        return response.data;
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
+  );
+
