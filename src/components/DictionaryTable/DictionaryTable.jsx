@@ -12,32 +12,21 @@ import { useDispatch } from 'react-redux';
 import { selectWords } from '../../redux/words/selectors';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
+import { EditWordModal } from '../../components/Modal/EditWordModal';
+import { useState } from 'react';
 
-const columnHelper = createColumnHelper();
 
-const columns = [
-  columnHelper.accessor('en', {
-    cell: info => info.getValue(),
-    header: () => <span>Word</span>,
-  }),
-  columnHelper.accessor('ua', {
-    cell: info => info.getValue(),
-    header: () => <span>Translation</span>,
-  }),
-  columnHelper.accessor('category', {
-    header: () => 'Category',
-    cell: info => info.getValue(),
-  }),
-  columnHelper.accessor('progress', {
-    header: () => <span>Progress</span>,
-  }),
-  columnHelper.accessor('status', {
-    header: 'Status',
-    cell: info => info.getValue() || '...',
-  }),
-];
 
 export function DictionaryTable() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [selectedRowData, setSelectedRowData] = useState(null);
+  
+  const handleStatusClick = (rowData) => {
+    setSelectedRowData(rowData);
+    setIsOpenModal(true);
+  };
+
+
   const words = useSelector(selectWords);
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
@@ -45,12 +34,46 @@ export function DictionaryTable() {
     dispatch(fetchWords({ token }));
   }, [dispatch, token]);
 
+  const columnHelper = createColumnHelper();
+
+  const columns = [
+    columnHelper.accessor('en', {
+      cell: info => info.getValue(),
+      header: () => <span>Word</span>,
+    }),
+    columnHelper.accessor('ua', {
+      cell: info => info.getValue(),
+      header: () => <span>Translation</span>,
+    }),
+    columnHelper.accessor('category', {
+      header: () => 'Category',
+      cell: info => info.getValue(),
+    }),
+    columnHelper.accessor('progress', {
+      header: () => <span>Progress</span>,
+    }),
+    columnHelper.accessor('status', {
+      header: 'Status',
+      cell: info => (
+        <button onClick={() => handleStatusClick(info.row.original)}>
+          {info.getValue() || '...'}
+        </button>
+      ),
+    }),
+  ];
 
   const table = useReactTable({
     data: words,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+
+  
+
+
+
+  
+  
 
   return (
     <div className="p-2">
@@ -83,6 +106,12 @@ export function DictionaryTable() {
           ))}
         </tbody>
       </table>
+      <EditWordModal
+     isOpenModal={isOpenModal}
+     setIsOpenModal={setIsOpenModal}
+     wordData={selectedRowData} 
+   />
     </div>
+     
   );
 }

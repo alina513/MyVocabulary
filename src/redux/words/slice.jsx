@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchWords, addWord, fetchCategories } from './operation';
+import { fetchWords, addWord, fetchCategories, deleteWord, editWord } from './operation';
 
 const initialState = {
  words : [],
@@ -34,7 +34,20 @@ const wordsSlice = createSlice({
       })
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.categories = action.payload;
-      });
+      })
+      .addCase(deleteWord.fulfilled, (state, action) => {
+        state.words.filter(word => word._id !== action.payload.id
+        );
+      })
+      .addCase(editWord.fulfilled, (state, action) => {
+        const updatedWord = action.payload; 
+  state.words = state.words.map(word => {
+    if (word._id === updatedWord._id) {
+      return updatedWord;
+    }
+    return word; 
+  });
+      })
   },
 });
 

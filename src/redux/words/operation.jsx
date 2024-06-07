@@ -56,3 +56,30 @@ export const fetchWords = createAsyncThunk(
     }
   );
 
+  export const deleteWord = createAsyncThunk(
+    'words/deleteWords',
+    async ({id, token} ,thunkAPI) => {
+      try {
+        setAuthHeader(token);
+        const response = await axios.delete(`/words/delete/${id}`);
+        console.log(response.data)
+        return response.data;
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
+  );
+  
+
+  export const editWord = createAsyncThunk(
+    'words/editWord',
+    async ({ id, en, ua, category, isIrregular, token}, thunkAPI) => {
+      try {
+        setAuthHeader(token);
+        const response = await axios.patch(`/words/edit/${id}`, { en, ua , category, isIrregular});
+        return response.data;
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
+  );

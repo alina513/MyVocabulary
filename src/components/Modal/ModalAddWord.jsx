@@ -242,20 +242,11 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
     const ua = event.target.elements.ukr.value;
     const category = event.target.elements.categories.value;
     const isIrregular = event.target.elements.verb?.value;
-    // const existingContact = contacts.some(contact => contact.name === name);
-    // if (existingContact) {
-    //   // alert(`Contact with name '${name}' already exists!`);
-
-    //   const notify = name =>
-    //     toast.error(`Contact with name '${name}' already exists!`);
-    //     notify(name);
-    //   event.target.reset();
-
-    //   return;
-    // }
+    
 
     dispatch(addWord({ en, ua, category, isIrregular, token }));
     event.target.reset();
+    setIsOpenModalLogin(false);
   };
 
   useEffect(() => {
