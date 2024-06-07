@@ -1,3 +1,4 @@
+
 import {
   createColumnHelper,
   flexRender,
@@ -6,10 +7,12 @@ import {
 } from '@tanstack/react-table';
 import * as React from 'react';
 
+import Pagination from '../Pagination/Pagination';
+
 import { fetchWords } from '../../redux/words/operation';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { selectWords } from '../../redux/words/selectors';
+import { selectWords, selectCurrentPage, selectTotalPage, selectFiltersKeyWord, selectFiltersCategory } from '../../redux/words/selectors';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
 import { EditWordModal } from '../../components/Modal/EditWordModal';
@@ -29,10 +32,14 @@ export function DictionaryTable() {
 
   const words = useSelector(selectWords);
   const token = useSelector(selectToken);
+  const totalPages = useSelector(selectTotalPage);
+  const currentPage = useSelector(selectCurrentPage);
+  const keyword = useSelector(selectFiltersKeyWord);
+  const category = useSelector(selectFiltersCategory);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchWords({ token }));
-  }, [dispatch, token]);
+    dispatch(fetchWords({ token, page: currentPage, keyword, category }));
+  }, [dispatch, token, currentPage, keyword, category]);
 
   const columnHelper = createColumnHelper();
 
@@ -71,7 +78,9 @@ export function DictionaryTable() {
   
 
 
-
+  const handlePageChange = (newPage) => {
+    dispatch(fetchWords({ token, page: newPage }));
+  };
   
   
 
@@ -111,6 +120,11 @@ export function DictionaryTable() {
      setIsOpenModal={setIsOpenModal}
      wordData={selectedRowData} 
    />
+
+   <Pagination totalPages={totalPages}
+        page={currentPage}
+        onPageChange={handlePageChange}/>
+   
     </div>
      
   );

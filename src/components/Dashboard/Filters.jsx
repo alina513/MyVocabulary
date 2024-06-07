@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { selectToken } from "../../redux/auth/selectors";
 import { selectCategories } from "../../redux/words/selectors";
 import { fetchCategories } from "../../redux/words/operation";
+import { setFilter, setCategory } from "../../redux/words/slice";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -18,16 +19,31 @@ export const Filters = () =>{
     
       const categories = useSelector(selectCategories);
       const [selectedCategory, setSelectedCategory] = useState('');
+      const [keyword, setKeyword] = useState('');
+      const [filterword, setFilterword] = useState('');
+
+      const handleKeywordChange = (event) => {
+        const keyword = event.target.value;
+        setKeyword(keyword);
+        dispatch(setFilter(keyword));
+      };
+    
     
     
       const handleCategoryChange = event => {
         setSelectedCategory(event.target.value);
+        const filterword = event.target.value;
+        setFilterword(filterword);
+        dispatch(setCategory(filterword));
       };
     
   
     return(
         <Container>
-        <Input placeholder="Find the word"/>
+        <Input placeholder="Find the word"
+        value={keyword}
+        onChange={handleKeywordChange}
+        />
         <Select
             id="categories"
             name="categories"

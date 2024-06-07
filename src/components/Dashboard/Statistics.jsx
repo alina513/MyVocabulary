@@ -1,9 +1,12 @@
 import { Span, Stat } from "./Statistics.styled";
+import { useSelector } from "react-redux";
+import { selectWords } from "../../redux/words/selectors";
 
 export const Statistics = () => {
+    const words = useSelector(selectWords);
     return(
         <>
-        <Stat>To study:<Span></Span></Stat>
+        <Stat>To study:<Span>{words.length|| 0}</Span></Stat>
         </>
     )
 }

@@ -8,20 +8,6 @@ const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const fetchWords = createAsyncThunk(
-    'words/fetchAll',
-    async (token, thunkAPI) => {
-      try {
-        const response = await axios.get('/words/own');
-        setAuthHeader(response.data.token);
-          
-        return response.data.results;
-      } catch (e) {
-        return thunkAPI.rejectWithValue(e.message);
-      }
-    }
-  );
-
  
 
   export const addWord = createAsyncThunk(
@@ -62,7 +48,7 @@ export const fetchWords = createAsyncThunk(
       try {
         setAuthHeader(token);
         const response = await axios.delete(`/words/delete/${id}`);
-        console.log(response.data)
+        setAuthHeader(response.data.token);
         return response.data;
       } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
@@ -78,6 +64,47 @@ export const fetchWords = createAsyncThunk(
         setAuthHeader(token);
         const response = await axios.patch(`/words/edit/${id}`, { en, ua , category, isIrregular});
         return response.data;
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
+  );
+
+  // export const fetchWords = createAsyncThunk(
+  //   'words/fetchAll',
+  //   async ({token, page, limit = 7}, thunkAPI) => {
+  //     try {
+        
+  //           const response = await axios.get('/words/own', {params: {page, limit},
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //           },});
+  //           return response.data;
+        
+        
+  //     } catch (e) {
+  //       return thunkAPI.rejectWithValue(e.message);
+  //     }
+  //   }
+  // );
+
+
+  export const fetchWords = createAsyncThunk(
+    'words/fetchAll',
+    async ({token, page, limit = 7, keyword, category}, thunkAPI) => {
+      try {
+        const params = { page, limit };
+        if (keyword) params.keyword = keyword;
+        if (category) params.category = category;
+  
+        const response = await axios.get('/words/own', {
+          params,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return response.data;
+        
       } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
       }

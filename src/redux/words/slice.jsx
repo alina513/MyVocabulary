@@ -5,19 +5,39 @@ const initialState = {
  words : [],
  isLoading: false,
  categories: [],
+ totalPages: 1,
+ currentPage: 1,
+ filters: {
+  keyword: null,
+  category: null,
+
+ }
 };
 
 const wordsSlice = createSlice({
   name: 'words',
   initialState,
+
+  reducers: {
+    setFilter(state, action) {
+      state.filters.keyword = action.payload;
+    },
+    setCategory(state, action) {
+      state.filters.category = action.payload;
+    },
+  },
+
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchWords.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(fetchWords.fulfilled, (state, action) => {
-        state.words = action.payload;
+        state.words = action.payload.results;
         state.isLoggedIn = false;
+        state.totalPages = action.payload.totalPages;
+        state.currentPage =action.payload.page;
       })
       .addCase(fetchWords.rejected, (state) => {
         state.isLoading = false;
@@ -52,3 +72,4 @@ const wordsSlice = createSlice({
 });
 
 export const wordsReducer = wordsSlice.reducer;
+export const { setFilter, setCategory } = wordsSlice.actions;
