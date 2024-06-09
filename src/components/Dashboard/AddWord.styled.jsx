@@ -11,6 +11,10 @@ line-height: 150%;
 border: none;
 color: ${(p) => p.theme.colors.black};
 background-color: ${(p) => p.theme.colors.buttonWhite};
+&:hover,
+&:focus {
+    color: ${(p)=> p.theme.colors.green}
+}
 `
 
 export const Link = styled(NavLink)`
@@ -21,6 +25,10 @@ font-weight: 500;
 font-size: 16px;
 line-height: 150%;
 color: ${(p) => p.theme.colors.black};
+&:hover,
+&:focus {
+    color: ${(p)=> p.theme.colors.green}
+}
 `
 export const Svg = styled.svg`
 width: 20px;

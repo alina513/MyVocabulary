@@ -23,7 +23,7 @@ export const Filters = () =>{
       const [filterword, setFilterword] = useState('');
 
       const handleKeywordChange = (event) => {
-        const keyword = event.target.value;
+        const keyword = event.target.value.trim();
         setKeyword(keyword);
         dispatch(setFilter(keyword));
       };
@@ -49,7 +49,7 @@ export const Filters = () =>{
             name="categories"
             onChange={handleCategoryChange}
           >
-            <option value="" disabled></option>
+            <option value="" ></option>
             {categories &&
               categories.map(category => (
                 <option key={category} value={category}>

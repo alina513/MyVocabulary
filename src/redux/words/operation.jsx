@@ -70,23 +70,7 @@ const setAuthHeader = (token) => {
     }
   );
 
-  // export const fetchWords = createAsyncThunk(
-  //   'words/fetchAll',
-  //   async ({token, page, limit = 7}, thunkAPI) => {
-  //     try {
-        
-  //           const response = await axios.get('/words/own', {params: {page, limit},
-  //           headers: {
-  //             Authorization: `Bearer ${token}`,
-  //           },});
-  //           return response.data;
-        
-        
-  //     } catch (e) {
-  //       return thunkAPI.rejectWithValue(e.message);
-  //     }
-  //   }
-  // );
+  
 
 
   export const fetchWords = createAsyncThunk(

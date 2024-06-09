@@ -2,8 +2,14 @@ import React from "react";
 import { Wrapper, List, Button, Activ } from "./Pagination.styled";
 
 const Pagination = ({ totalPages, page, onPageChange }) => {
-  const handlePageChange = (page) => {
-    onPageChange(page);
+  // const handlePageChange = (page) => {
+  //   onPageChange(page);
+  // };
+
+  const handlePageChange = (newPage) => {
+    if (newPage !== page) {
+      onPageChange(newPage);
+    }
   };
 
   const renderPageNumbers = () => {
@@ -19,7 +25,7 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(
           <li key={i} className={page === i ? "active" : ""}>
-            <Activ
+            <Activ active={page === i}
               onClick={() => handlePageChange(i)}
             >
               {i}
@@ -42,7 +48,7 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
       for (let i = s; i <= e; i++) {
         pageNumbers.push(
           <li key={i} className={page === i ? "active" : ""}>
-            <Activ
+            <Activ active={page === i}
               onClick={() => handlePageChange(i)}
             >
               {i}
@@ -56,7 +62,7 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
       for (let i = totalPages; i <= totalPages; i++) {
         pageNumbers.push(
           <li key={i}>
-            <Activ
+            <Activ active={page === i}
               onClick={() => handlePageChange(i)}
             >
               {i}

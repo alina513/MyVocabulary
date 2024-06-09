@@ -23,6 +23,7 @@ export const Wrapper = styled.nav`
     height: 32px;
     border-radius: 8px;
     background-color: transparent;
+    
     color: var(--primary-color-black);
     border: 1px solid var(--primary-color-fon);
     &:hoveer,
@@ -35,12 +36,14 @@ export const Wrapper = styled.nav`
   
   export const Activ = styled.button`
   cursor: pointer;
+  font-weight: 600;
+font-size: 13px;
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background-color: ${({ active }) => (active ? '#007bff' : '#fff')};
-  color: ${({ active }) => (active ? '#fff' : '#007bff')};
-    border: 1px solid #007bff;
+    background-color: ${({ active }) => (active ? '#85AA9F' : '#fff')};
+  color: ${({ active }) => (active ? '#fff' : '#121417')};
+    border: 1px solid #121417;
     &:hover {
         background-color: ${({ active }) => (active ? '#0056b3' : '#e7e7e7')};
       }

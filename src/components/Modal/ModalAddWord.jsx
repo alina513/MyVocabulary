@@ -292,7 +292,7 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
             name="categories"
             onChange={handleCategoryChange}
           >
-            <option value="" disabled></option>
+            <option value="" ></option>
             {categories &&
               categories.map(category => (
                 <option key={category} value={category}>

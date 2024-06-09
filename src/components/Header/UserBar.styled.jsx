@@ -29,6 +29,10 @@ border: none;
 display: flex;
 align-items: center;
 gap: 6px;
+&:hover,
+&:focus {
+    color: ${(p)=> p.theme.colors.green}
+}
 `
 export const Svg = styled.svg`
 width: 16px;

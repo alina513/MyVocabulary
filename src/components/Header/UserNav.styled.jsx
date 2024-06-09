@@ -24,7 +24,7 @@ color: ${(p)=> p.theme.colors.black};
 
 &:hover,
 &:focus {
-    color: ${(p)=> p.theme.colors.green};
+    color: blue;
 }
 
 `
