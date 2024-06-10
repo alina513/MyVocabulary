@@ -1,7 +1,7 @@
 import styled from "styled-components";
  
 export const Container = styled.div`
-margin-top: 136px;
+margin-top: 16px;
 border-radius: 15px;
 padding: 18px;
 width: 1240px;
@@ -130,3 +130,10 @@ margin-right: 10px;
 }
 `
 
+export const Con = styled.div`
+margin-right: 100px;
+margin-left: auto;
+margin-top: 62px;
+width: 60px;
+
+`

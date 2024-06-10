@@ -6,3 +6,4 @@ export const selectCurrentPage = (state) => state.words.currentPage;
 export const selectFiltersKeyWord = (state) => state.words.filters.keyword;
 export const selectFiltersCategory = (state) => state.words.filters.category;
 export const selectTasks = (state) => state.words.tasks;
+export const selectResults = (state) => state.words.results;

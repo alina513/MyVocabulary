@@ -11,7 +11,7 @@ const CircularProgress = ({ progress }) => {
       display: 'inline-block',
       width: 50,
       height: 50,
-      marginLeft: '16px', // відступ для кола
+      marginLeft: '16px',
     };
   
     const progressTextStyle = {
@@ -35,5 +35,11 @@ const CircularProgress = ({ progress }) => {
       </div>
     );
   };
+
+
+
+
+
+export default CircularProgress;
   
-  export default CircularProgress;
+  

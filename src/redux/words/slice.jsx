@@ -7,13 +7,15 @@ import {
   editWord,
   fetchWordsRecommend,
   addRecommendWord,
-  fetchTasks
+  fetchTasks,
+  addAnswers
 } from './operation';
 
 const initialState = {
   words: [],
   tasks: [],
   answers: [],
+  results: [],
   wordsRecommend: [],
   isLoading: false,
   categories: [],
@@ -83,6 +85,10 @@ const wordsSlice = createSlice({
       })
       .addCase(addWord.rejected, state => {
         state.isLoading = false;
+      })
+      .addCase(addAnswers.fulfilled, (state, action) => {
+        state.results = action.payload;
+        state.isLoggedIn = false;
       })
       .addCase(addRecommendWord.pending, state => {
         state.isLoading = true;

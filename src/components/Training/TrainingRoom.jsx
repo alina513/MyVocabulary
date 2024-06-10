@@ -13,6 +13,7 @@ import {
   ContainerButton,
   Save,
   Cansel,
+  Con
 } from './TrainingRoom.styled';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -22,7 +23,8 @@ import { selectTasks } from '../../redux/words/selectors';
 import { selectToken } from '../../redux/auth/selectors';
 import { fetchTasks, addAnswers } from '../../redux/words/operation';
 import sprite from '../../assets/sprite.svg';
-import CircularProgress from '../../components/Progress';
+import { Circle } from 'rc-progress';
+import { WellDoneModal } from '../../components/Modal/WellDoneModal';
 
 export const TrainingRoom = () => {
   const token = useSelector(selectToken);
@@ -30,6 +32,7 @@ export const TrainingRoom = () => {
   const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
   const [translation, setTranslation] = useState('');
   const [answers, setAnswers] = useState([]);
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const progress =
     answers && tasks.length > 0
       ? Math.ceil(((answers.length * 2) / tasks.length) * 100)
@@ -80,11 +83,54 @@ const handleNextTask = () => {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(addAnswers({ data: answers, token }));
+    setIsOpenModal(true);
+    setTranslation('');
   };
+
+
+  const CircularProgress = ({ progress }) => {
+    const containerStyle = {
+      display: 'flex',
+      alignItems: 'center',
+    };
+  
+    const circleContainerStyle = {
+      position: 'relative',
+      width: 50,
+      height: 50,
+      marginLeft: '16px', // відступ для кола
+    };
+  
+    const progressTextStyle = {
+      fontSize: '16px',
+      fontWeight: '500',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+    };
+  
+    return (
+      <div style={containerStyle}>
+        <div style={circleContainerStyle}>
+          <Circle 
+            percent={progress}
+            size={58}
+            strokeWidth={5} 
+            strokeColor="#2BD627" 
+            trailColor="grey"
+          />
+          <div style={progressTextStyle}>{`${progress}`}</div>
+        </div>
+      </div>
+    );
+};
 
   return (
     <>
+    <Con>
       <CircularProgress progress={progress}/>
+      </Con>
       <form onSubmit={handleSubmit}>
         <Container>
           <ContainerInputUkr>
@@ -112,14 +158,14 @@ const handleNextTask = () => {
           </ContainerInputUkr>
           <ContainerInputEng>
             <WrapperLang>
-              <Text>
+              {/* <Text>
               {tasks.length > 0
                 ? tasks[currentTaskIndex].en
                 : 'No tasks available'}
-            </Text>
-              {/* {tasks.length > 0 && tasks[currentTaskIndex]
+            </Text> */}
+              {tasks.length > 0 && tasks[currentTaskIndex]
                 ? tasks[currentTaskIndex].ua
-                : 'No tasks available'} */}
+                : <Text>No tasks available</Text>}
               <ContainerLang>
                 <Lang>Ukraine</Lang>
                 <Svg>
@@ -134,6 +180,7 @@ const handleNextTask = () => {
           <Cansel>Cansel</Cansel>
         </ContainerButton>
       </form>
+      <WellDoneModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
     </>
   );
 };
