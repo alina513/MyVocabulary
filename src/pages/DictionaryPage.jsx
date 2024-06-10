@@ -6,7 +6,7 @@ export default function DictionaryPage () {
 
         return (
             <>
-            <Dashboard/>
+            <Dashboard exam = {exam}/>
             <DictionaryTable exam = {exam}/>
             </>
         )

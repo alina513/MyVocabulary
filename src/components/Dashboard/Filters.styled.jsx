@@ -12,6 +12,7 @@ font-size: 16px;
 line-height: 150%;
 display: block;
 color: ${(p)=> p.theme.colors.black};
+background-color: transparent;
 `
 
 export const Select = styled.select`
@@ -26,6 +27,7 @@ line-height: 150%;
 color: ${(p)=> p.theme.colors.black};
 margin-left: 8px;
 display: block;
+background-color: transparent;
 `
 export const Container = styled.div`
 display: flex;

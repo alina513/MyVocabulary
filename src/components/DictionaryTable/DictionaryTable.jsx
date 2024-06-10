@@ -1,3 +1,176 @@
+// import {
+//   createColumnHelper,
+//   flexRender,
+//   getCoreRowModel,
+//   useReactTable,
+// } from '@tanstack/react-table';
+// import * as React from 'react';
+// import { Wrapper, Th, Tr, Td, Button, Table, Svg, Span, Hidden } from './DictionaryTable.styled';
+// import sprite from '../../assets/sprite.svg'
+
+// import Pagination from '../Pagination/Pagination';
+
+// import { fetchWords } from '../../redux/words/operation';
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { selectWords, selectCurrentPage, selectTotalPage, selectFiltersKeyWord, selectFiltersCategory } from '../../redux/words/selectors';
+// import { useSelector } from 'react-redux';
+// import { selectToken } from '../../redux/auth/selectors';
+// import { EditWordModal } from '../../components/Modal/EditWordModal';
+// import { useState } from 'react';
+
+// export function DictionaryTable({exam}) {
+//   const [isOpenModal, setIsOpenModal] = useState(false);
+//   const [selectedRowData, setSelectedRowData] = useState(null);
+
+//   const handleStatusClick = (rowData) => {
+//     setSelectedRowData(rowData);
+//     setIsOpenModal(true);
+//   };
+
+//   const words = useSelector(selectWords);
+//   const token = useSelector(selectToken);
+//   const totalPages = useSelector(selectTotalPage);
+//   const currentPage = useSelector(selectCurrentPage);
+//   const keyword = useSelector(selectFiltersKeyWord);
+//   const category = useSelector(selectFiltersCategory);
+//   const dispatch = useDispatch();
+//   useEffect(() => {
+//     dispatch(fetchWords({ token, page: currentPage, keyword, category }));
+//   }, [dispatch, token, currentPage, keyword, category]);
+
+//   const columnHelper = createColumnHelper();
+
+//   // const columns = [
+//   //   columnHelper.accessor('en', {
+//   //     cell: info => info.getValue(),
+//   //     header: () => <Span>Word<Svg><use xlinkHref={sprite + '#icon-uk'}></use></Svg></Span>,
+//   //   }),
+//   //   columnHelper.accessor('ua', {
+//   //     cell: info => info.getValue(),
+//   //     header: () => <Span>Translation<Svg><use xlinkHref={sprite + '#icon-ukraine'}></use></Svg></Span>,
+//   //   }),
+//   //   columnHelper.accessor('category', {
+//   //     header: () => 'Category',
+//   //     cell: info => info.getValue(),
+//   //   }),
+//   //   columnHelper.accessor('progress', {
+//   //     header: () => <span>Progress</span>,
+//   //   }),
+//   //   columnHelper.accessor('status', {
+//   //     header: () => <Hidden>Status</Hidden>,
+//   //     cell: info => (
+//   //       <Button onClick={() => handleStatusClick(info.row.original)}>
+//   //         {info.getValue() || '...'}
+//   //       </Button>
+//   //     ),
+//   //   }),
+//   // ];
+// let columns;
+// if(exam === true) {
+//    columns = [
+//     columnHelper.accessor('en', {
+//       cell: info => info.getValue(),
+//       header: () => <Span>Word<Svg><use xlinkHref={sprite + '#icon-uk'}></use></Svg></Span>,
+//     }),
+//     columnHelper.accessor('ua', {
+//       cell: info => info.getValue(),
+//       header: () => <Span>Translation<Svg><use xlinkHref={sprite + '#icon-ukraine'}></use></Svg></Span>,
+//     }),
+//     columnHelper.accessor('category', {
+//       header: () => 'Category',
+//       cell: info => info.getValue(),
+//     }),
+//     columnHelper.accessor('progress', {
+//       header: () => <span>Progress</span>,
+//     }),
+//     columnHelper.accessor('status', {
+//       header: () => <Hidden>Status</Hidden>,
+//       cell: info => (
+//         <Button onClick={() => handleStatusClick(info.row.original)}>
+//           {info.getValue() || '...'}
+//         </Button>
+//       ),
+//     }),];}
+//     else{ columns = [
+//       columnHelper.accessor('en', {
+//         cell: info => info.getValue(),
+//         header: () => <Span>Word<Svg><use xlinkHref={sprite + '#icon-uk'}></use></Svg></Span>,
+//       }),
+//       columnHelper.accessor('ua', {
+//         cell: info => info.getValue(),
+//         header: () => <Span>Translation<Svg><use xlinkHref={sprite + '#icon-ukraine'}></use></Svg></Span>,
+//       }),
+//       columnHelper.accessor('category', {
+//         header: () => 'Category',
+//         cell: info => info.getValue(),
+//       }),
+
+//       columnHelper.accessor('status', {
+//         header: () => <Hidden>Status</Hidden>,
+//         cell: info => (
+//           <Button onClick={() => handleStatusClick(info.row.original)}>
+//             {info.getValue() || 'Add to dictionary'}
+//           </Button>
+//         ),
+//       }),]}
+
+//   const table = useReactTable({
+//     data: words,
+//     columns,
+//     getCoreRowModel: getCoreRowModel(),
+//   });
+
+//   const handlePageChange = (newPage) => {
+//     dispatch(fetchWords({ token, page: newPage }));
+//   };
+
+//   return (
+//     <>
+//     <Wrapper>
+//       <Table>
+//         <thead>
+//           {table.getHeaderGroups().map(headerGroup => (
+//             <tr key={headerGroup.id}>
+//               {headerGroup.headers.map(header => (
+//                 <Th key={header.id}>
+//                   {header.isPlaceholder
+//                     ? null
+//                     : flexRender(
+//                         header.column.columnDef.header,
+//                         header.getContext()
+//                       )}
+//                 </Th>
+//               ))}
+//             </tr>
+//           ))}
+//         </thead>
+//         <tbody>
+//           {table.getRowModel().rows.map(row => (
+//             <Tr key={row.id}>
+//               {row.getVisibleCells().map(cell => (
+//                 <Td key={cell.id}>
+//                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
+//                 </Td>
+//               ))}
+//             </Tr>
+//           ))}
+//         </tbody>
+//       </Table>
+//       <EditWordModal
+//      isOpenModal={isOpenModal}
+//      setIsOpenModal={setIsOpenModal}
+//      wordData={selectedRowData}
+//    />
+//     </Wrapper>
+
+//    <Pagination totalPages={totalPages}
+//         page={currentPage}
+//         onPageChange={handlePageChange}/>
+//         </>
+
+//   );
+// }
 
 import {
   createColumnHelper,
@@ -6,43 +179,82 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import * as React from 'react';
-import { Wrapper, Th, Tr, Td, Button, Table, Svg, Span, Hidden } from './DictionaryTable.styled';
-import sprite from '../../assets/sprite.svg'
+import {
+  Wrapper,
+  Th,
+  Tr,
+  Td,
+  Button,
+  Table,
+  Svg,
+  Span,
+  Hidden,
+  SvgAdd,
+  SpanAdd,
+  ButtonAdd,
+   Container
+} from './DictionaryTable.styled';
+import sprite from '../../assets/sprite.svg';
+import CircularProgress from '../Progress';
 
 import Pagination from '../Pagination/Pagination';
 
-import { fetchWords } from '../../redux/words/operation';
+import { fetchWords, fetchWordsRecommend, addRecommendWord } from '../../redux/words/operation';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { selectWords, selectCurrentPage, selectTotalPage, selectFiltersKeyWord, selectFiltersCategory } from '../../redux/words/selectors';
+import {
+  selectWords,
+  selectCurrentPage,
+  selectTotalPage,
+  selectFiltersKeyWord,
+  selectFiltersCategory,
+  selectWordsRecommend
+} from '../../redux/words/selectors';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
 import { EditWordModal } from '../../components/Modal/EditWordModal';
 import { useState } from 'react';
 
-
-
-export function DictionaryTable({exam}) {
+export function DictionaryTable({ exam }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedRowData, setSelectedRowData] = useState(null);
 
-  
-  const handleStatusClick = (rowData) => {
+  const handleStatusClick = rowData => {
     setSelectedRowData(rowData);
     setIsOpenModal(true);
   };
 
+  
 
   const words = useSelector(selectWords);
+  const recommend = useSelector(selectWordsRecommend);
   const token = useSelector(selectToken);
   const totalPages = useSelector(selectTotalPage);
   const currentPage = useSelector(selectCurrentPage);
   const keyword = useSelector(selectFiltersKeyWord);
   const category = useSelector(selectFiltersCategory);
   const dispatch = useDispatch();
+
+  const handleAddRecommend =  id => {
+   dispatch(addRecommendWord({id, token}))
+  }
+
+  // useEffect(() => {
+  //   dispatch(fetchWords({ token, page: currentPage, keyword, category }));
+  // }, [dispatch, token, currentPage, keyword, category]);
+
+  // useEffect(() => {
+  //   dispatch(fetchWordsRecommend({ token, page: currentPage, keyword, category }));
+  // }, [dispatch, token, currentPage, keyword, category]);
+
   useEffect(() => {
-    dispatch(fetchWords({ token, page: currentPage, keyword, category }));
-  }, [dispatch, token, currentPage, keyword, category]);
+    if (exam) {
+      dispatch(fetchWords({ token, page: currentPage, keyword, category }));
+    } else {
+      dispatch(fetchWordsRecommend({ token, page: currentPage, keyword, category }));
+    }
+  }, [dispatch, token, currentPage, keyword, category, exam]);
+
 
   const columnHelper = createColumnHelper();
 
@@ -71,116 +283,148 @@ export function DictionaryTable({exam}) {
   //     ),
   //   }),
   // ];
-let columns;
-if(exam === true) {
-   columns = [
-    columnHelper.accessor('en', {
-      cell: info => info.getValue(),
-      header: () => <Span>Word<Svg><use xlinkHref={sprite + '#icon-uk'}></use></Svg></Span>,
-    }),
-    columnHelper.accessor('ua', {
-      cell: info => info.getValue(),
-      header: () => <Span>Translation<Svg><use xlinkHref={sprite + '#icon-ukraine'}></use></Svg></Span>,
-    }),
-    columnHelper.accessor('category', {
-      header: () => 'Category',
-      cell: info => info.getValue(),
-    }),
-    columnHelper.accessor('progress', {
-      header: () => <span>Progress</span>,
-    }),
-    columnHelper.accessor('status', {
-      header: () => <Hidden>Status</Hidden>,
-      cell: info => (
-        <Button onClick={() => handleStatusClick(info.row.original)}>
-          {info.getValue() || '...'}
-        </Button>
-      ),
-    }),];}
-    else{ columns = [
+  let columns;
+  if (exam === true) {
+    columns = [
       columnHelper.accessor('en', {
         cell: info => info.getValue(),
-        header: () => <Span>Word<Svg><use xlinkHref={sprite + '#icon-uk'}></use></Svg></Span>,
+        header: () => (
+          <Span>
+            Word
+            <Svg>
+              <use xlinkHref={sprite + '#icon-uk'}></use>
+            </Svg>
+          </Span>
+        ),
       }),
       columnHelper.accessor('ua', {
         cell: info => info.getValue(),
-        header: () => <Span>Translation<Svg><use xlinkHref={sprite + '#icon-ukraine'}></use></Svg></Span>,
+        header: () => (
+          <Span>
+            Translation
+            <Svg>
+              <use xlinkHref={sprite + '#icon-ukraine'}></use>
+            </Svg>
+          </Span>
+        ),
       }),
       columnHelper.accessor('category', {
         header: () => 'Category',
         cell: info => info.getValue(),
       }),
-    
+      columnHelper.accessor('progress', {
+        header: () => <span>Progress</span>,
+        cell: info => <CircularProgress progress={info.getValue()} />
+      }),
       columnHelper.accessor('status', {
         header: () => <Hidden>Status</Hidden>,
         cell: info => (
           <Button onClick={() => handleStatusClick(info.row.original)}>
-            {info.getValue() || 'Add to dictionary'}
+            {info.getValue() || '...'}
           </Button>
         ),
-      }),]}
+      }),
+    ];
+  } else {
+    columns = [
+      columnHelper.accessor('en', {
+        cell: info => info.getValue(),
+        header: () => (
+          <Span>
+            Word
+            <Svg>
+              <use xlinkHref={sprite + '#icon-uk'}></use>
+            </Svg>
+          </Span>
+        ),
+      }),
+      columnHelper.accessor('ua', {
+        cell: info => info.getValue(),
+        header: () => (
+          <Span>
+            Translation
+            <Svg>
+              <use xlinkHref={sprite + '#icon-ukraine'}></use>
+            </Svg>
+          </Span>
+        ),
+      }),
+      columnHelper.accessor('category', {
+        header: () => 'Category',
+        cell: info => info.getValue(),
+      }),
 
+      columnHelper.accessor('status', {
+        header: () => <Hidden>Status</Hidden>,
+        cell: info => (
+          <ButtonAdd onClick={() => handleAddRecommend(info.row.original._id)}>
+            {info.getValue() || <SpanAdd>Add to dictionary<SvgAdd><use xlinkHref={sprite + "#icon-switch"}></use></SvgAdd></SpanAdd>}
+          </ButtonAdd>
+        ),
+      }),
+    ];
+  }
 
+  let value;
+if (exam) {value = words}
+else {value = recommend}
+  
   const table = useReactTable({
-    data: words,
+    data: value,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
 
-  
-
-
-  const handlePageChange = (newPage) => {
-    dispatch(fetchWords({ token, page: newPage }));
+  const handlePageChange = newPage => {
+    if(exam) {
+    dispatch(fetchWords({ token, page: newPage }));}
+    else {dispatch(fetchWordsRecommend({ token, page: newPage }))}
   };
-  
-  
 
   return (
     <>
-    <Wrapper>
-      <Table>
-        <thead>
-          {table.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map(header => (
-                <Th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </Th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map(row => (
-            <Tr key={row.id}>
-              {row.getVisibleCells().map(cell => (
-                <Td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </Td>
-              ))}
-            </Tr>
-          ))}
-        </tbody>
-      </Table>
-      <EditWordModal
-     isOpenModal={isOpenModal}
-     setIsOpenModal={setIsOpenModal}
-     wordData={selectedRowData} 
-   />
-    </Wrapper>
+      <Wrapper>
+        <Table>
+          <thead>
+            {table.getHeaderGroups().map(headerGroup => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map(header => (
+                  <Th key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </Th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map(row => (
+              <Tr key={row.id}>
+                {row.getVisibleCells().map(cell => (
+                  <Td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </Td>
+                ))}
+              </Tr>
+            ))}
+          </tbody>
+        </Table>
+        <EditWordModal
+          isOpenModal={isOpenModal}
+          setIsOpenModal={setIsOpenModal}
+          wordData={selectedRowData}
+        />
+      </Wrapper>
 
-   <Pagination totalPages={totalPages}
+      <Pagination
+        totalPages={totalPages}
         page={currentPage}
-        onPageChange={handlePageChange}/>
-        </>
-   
-   
-     
+        onPageChange={handlePageChange}
+      />
+    </>
   );
 }

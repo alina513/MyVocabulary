@@ -42,13 +42,13 @@ const setAuthHeader = (token) => {
     }
   );
 
-  export const deleteWord = createAsyncThunk(
+  export const deleteWordById = createAsyncThunk(
     'words/deleteWords',
     async ({id, token} ,thunkAPI) => {
       try {
         setAuthHeader(token);
-        const response = await axios.delete(`/words/delete/${id}`);
-        setAuthHeader(response.data.token);
+        const response = await axios.delete(`/words/delete/${id}`
+        );
         return response.data;
       } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
@@ -90,6 +90,78 @@ const setAuthHeader = (token) => {
         return response.data;
         
       } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
+  );
+
+
+  export const fetchWordsRecommend = createAsyncThunk(
+    'words/fetchAllRecommend',
+    async ({token, page, limit = 7, keyword, category}, thunkAPI) => {
+      try {
+        const params = { page, limit };
+        if (keyword) params.keyword = keyword;
+        if (category) params.category = category;
+  
+        const response = await axios.get('/words/all', {
+          params,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return response.data;
+        
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
+  );
+
+  export const addRecommendWord = createAsyncThunk(
+    'words/addRecommendWords',
+    async ({id, token} ,thunkAPI) => {
+      try {
+        const response = await axios.post(`/words/add/${id}`, null, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }, });
+        return response.data;
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
+  );
+
+  export const fetchTasks = createAsyncThunk(
+    'words/fetchTasks',
+    async ({token}, thunkAPI) => {
+      try {
+        const response = await axios.get('/words/tasks', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return response.data.tasks;
+        
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
+  );
+
+  export const addAnswers = createAsyncThunk(
+    'words/addAnswers',
+    async ({data, token},  thunkAPI) => {
+      try {
+        const response = await axios.post('/words/answers', data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }, });
+          console.log(response.data);
+        return response.data;}
+         catch (e) {
         return thunkAPI.rejectWithValue(e.message);
       }
     }

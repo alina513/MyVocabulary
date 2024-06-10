@@ -5,11 +5,14 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { RestrictedRoute } from '../route/RestrictedRoute';
 import { PrivateRoute } from '../route/PrivateRoute';
+import TrainingPage from 'pages/TrainingPage';
 
 const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
 const Layout = lazy(() => import('../components/Layout/Layout'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const DictionaryPage = lazy(() => import('../pages/DictionaryPage'));
+const RecommendPage = lazy(() => import('../pages/RecommendPage'));
+const trainingPage = lazy(() => import('../pages/TrainingPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -40,6 +43,8 @@ export const App = () => {
         />
         <Route path="/" element={<Layout />}>
           <Route path="/dictionary" element={<PrivateRoute redirectTo='/login' component={<DictionaryPage />}/>} />
+          <Route path="/recommend" element={<PrivateRoute redirectTo='/login' component={<RecommendPage/>}/>} />
+          <Route path="/training" element={<PrivateRoute redirectTo='/login' component={<TrainingPage/>}/>} />
         </Route>
       </Routes>
     </>

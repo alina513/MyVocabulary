@@ -1,7 +1,44 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.form`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
+
 export const Edit = styled.button`
+display: flex;
+width: 76px;
+height: 24px;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+border: none;
+background-color: transparent;
+&:hover, &:focus {
+    color: ${(p)=> p.theme.colors.green};
+    
+
 `
 
 export const Delet = styled.button`
+display: flex;
+align-items: center;
+width: 76px;
+height: 24px;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+border: none;
+background-color: transparent;
+&:hover, &:focus {
+    color: ${(p)=> p.theme.colors.green};
+    
+`
+
+export const Svg = styled.svg`
+width: 16px;
+height: 16px;
+margin-right: 4px;
 `

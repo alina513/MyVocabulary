@@ -145,3 +145,8 @@ font-size: 12px;
 line-height: 117%;
 color: ${(p)=> p.theme.colors.white};
 `
+export const ErrorMessage = styled.p`
+color: red;
+font-size: 14px;
+margin-top: 5px;
+`;

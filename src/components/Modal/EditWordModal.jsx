@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { Edit, Delet } from './EditwordModal.styled';
+import { Edit, Delet, Wrapper, Svg } from './EditwordModal.styled';
 
 import sprite from '../../assets/sprite.svg';
 
@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
 import { useState } from 'react';
 import { EditWordForm } from './EditWordForm';
-import { deleteWord } from '../../redux/words/operation';
+import { deleteWordById } from '../../redux/words/operation';
 
 Modal.setAppElement('#modal');
 
@@ -18,22 +18,24 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData}) => {
     const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const customStyles = {
     overlay: {
-      backgroundColor: 'rgba(30, 66, 89, 0.4)',
+      backgroundColor: 'transparent',
+      width: '1600px',
     },
     content: {
       boxSizing: 'border-box',
-      top: '50%',
-      left: '50%',
+      top: '45%',
+      left: '85%',
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      padding: '48px 64px 48px 64px',
-      paddingLeft: '64px',
-      width: '628px',
-      height: '622px',
-      borderRadius: '30px',
-      backgroundColor: '#85AA9F',
+      padding: '12px 0px 12px 0px',
+      width: '130px',
+      height: '80px',
+      borderRadius: '15px',
+      backgroundColor: '#FFF',
+      boxShadow: '0 4px 47px 0 rgba(18, 20, 23, 0.08)',
+      border: 'none',
     },
   };
 
@@ -45,10 +47,10 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData}) => {
   const dispatch = useDispatch();
 
 
-  const handleDelete = async() => {
+  const handleDelete =  () => {
    const id = wordData._id;
 
-  await dispatch(deleteWord({ id, token }));
+    dispatch(deleteWordById({ id, token }));
     setIsOpenModal(false); 
 
   };
@@ -64,10 +66,10 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData}) => {
         style={customStyles}
         contentLabel="More info modal"
       >
-        <form onSubmit={handleDelete}>
-        <Edit onClick={handleEditClick} type = 'button'>Edit</Edit>
-        <Delet type='submit'>Delete</Delet>
-        </form>
+        <Wrapper onSubmit={handleDelete}>
+        <Edit onClick={handleEditClick} type = 'button'><Svg><use xlinkHref={sprite + "#icon-pen"}></use></Svg>Edit</Edit>
+        <Delet type='submit'><Svg><use xlinkHref={sprite + "#icon-trash"}></use></Svg>Delete</Delet>
+        </Wrapper>
       </Modal>
       <EditWordForm isOpenModal={isOpenEditModal}
      setIsOpenModal={setIsOpenEditModal}

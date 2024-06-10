@@ -65,7 +65,7 @@ font-size: 18px;
 line-height: 156%;
 background-color: ${(p)=> p.theme.colors.white};
 color: ${(p)=> p.theme.colors.black};
-margin-riight: 10px;
+margin-right: 10px;
 &:hover, &:focus {
     color: ${(p)=> p.theme.colors.green};
 }
@@ -92,8 +92,8 @@ background-color: #85AA9F;
   display: block;
   border: none;
   position: absolute;
-  right: -28px;
-  top: -28px;
+  right: -50px;
+  top: -50px;
 `
 
 export const Close = styled.svg`
@@ -145,3 +145,9 @@ font-size: 12px;
 line-height: 117%;
 color: ${(p)=> p.theme.colors.white};
 `
+
+export const ErrorMessage = styled.p`
+color: red;
+font-size: 14px;
+margin-top: 5px;
+`;

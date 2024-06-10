@@ -10,7 +10,8 @@ font-size: 16px;
 line-height: 150%;
 border: none;
 color: ${(p) => p.theme.colors.black};
-background-color: ${(p) => p.theme.colors.buttonWhite};
+// background-color: ${(p) => p.theme.colors.buttonWhite};
+background-color: transparent;
 &:hover,
 &:focus {
     color: ${(p)=> p.theme.colors.green}

@@ -68,7 +68,6 @@ export const LoginForm = () => {
   const renderValidationMessage = field => {
     if (!isSubmitted) return null;
     const value = watch(field);
-    console.log(value);
     const error = errors[field];
 
     if (value && !error) {
