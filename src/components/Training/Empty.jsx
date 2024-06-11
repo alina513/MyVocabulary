@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
+import { ModalAddWord } from "../../components/Modal/ModalAddWord";
 
 import { Wrapper, BtnWrapper, Btn, BtnCancel, Img, Title, Text } from "./Empty.styled";
 
@@ -7,6 +9,21 @@ import img2 from "../../assets/background/b00k2x.png";
 
 export const Empty = () => {
   
+  const navigate = useNavigate();
+ const location = useLocation();
+ const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
+  // const handleAddWordClick = () => {
+  //   navigate('/dictionary');
+  // };
+  const handleAddWordClick = () => {
+    navigate('/dictionary', { state: { openModal: true } });
+  };
+
+  useEffect(() => {
+    if (location.state?.openModal) {
+      setIsOpenModalLogin(true);
+    }
+  }, [location.state]);
 
   return (
     <Wrapper>
@@ -18,7 +35,7 @@ export const Empty = () => {
           you are interested in adding to your study.
         </Text>
         <BtnWrapper>
-          <Btn
+          <Btn onClick={handleAddWordClick}
           >
             Add word
           </Btn>
@@ -33,6 +50,10 @@ export const Empty = () => {
         alt="blood report"
         width="265"
         height="283"
+      />
+      <ModalAddWord
+        isOpenModalLogin={isOpenModalLogin}
+        setIsOpenModalLogin={setIsOpenModalLogin}
       />
     </Wrapper>
   );
