@@ -1,17 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ModalAddWord } from "../../components/Modal/ModalAddWord";
+import { ModalAddWord } from '../../components/Modal/ModalAddWord';
 
-import { Wrapper, BtnWrapper, Btn, BtnCancel, Img, Title, Text } from "./Empty.styled";
+import {
+  Wrapper,
+  BtnWrapper,
+  Btn,
+  BtnCancel,
+  Img,
+  Title,
+  Text,
+} from './Empty.styled';
 
-import img1 from "../../assets/background/book.png";
-import img2 from "../../assets/background/b00k2x.png";
+import img1 from '../../assets/background/book.png';
+import img2 from '../../assets/background/b00k2x.png';
 
 export const Empty = () => {
-  
   const navigate = useNavigate();
- const location = useLocation();
- const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
+  const location = useLocation();
+  const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
   // const handleAddWordClick = () => {
   //   navigate('/dictionary');
   // };
@@ -35,13 +42,8 @@ export const Empty = () => {
           you are interested in adding to your study.
         </Text>
         <BtnWrapper>
-          <Btn onClick={handleAddWordClick}
-          >
-            Add word
-          </Btn>
-          <BtnCancel>
-            Cancel
-          </BtnCancel>
+          <Btn onClick={handleAddWordClick}>Add word</Btn>
+          <BtnCancel>Cancel</BtnCancel>
         </BtnWrapper>
       </div>
       <Img
@@ -58,4 +60,3 @@ export const Empty = () => {
     </Wrapper>
   );
 };
-

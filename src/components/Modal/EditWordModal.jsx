@@ -2,8 +2,6 @@ import Modal from 'react-modal';
 import { Edit, Delet, Wrapper, Svg } from './EditwordModal.styled';
 
 import sprite from '../../assets/sprite.svg';
-
-import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
@@ -13,9 +11,8 @@ import { deleteWordById } from '../../redux/words/operation';
 
 Modal.setAppElement('#modal');
 
-
-export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData}) => {
-    const [isOpenEditModal, setIsOpenEditModal] = useState(false);
+export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData }) => {
+  const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const customStyles = {
     overlay: {
       backgroundColor: 'transparent',
@@ -46,15 +43,12 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData}) => {
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
 
-
-  const handleDelete =  () => {
-   const id = wordData._id;
+  const handleDelete = () => {
+    const id = wordData._id;
 
     dispatch(deleteWordById({ id, token }));
-    setIsOpenModal(false); 
-
+    setIsOpenModal(false);
   };
-
 
   return (
     <>
@@ -67,14 +61,25 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData}) => {
         contentLabel="More info modal"
       >
         <Wrapper onSubmit={handleDelete}>
-        <Edit onClick={handleEditClick} type = 'button'><Svg><use xlinkHref={sprite + "#icon-pen"}></use></Svg>Edit</Edit>
-        <Delet type='submit'><Svg><use xlinkHref={sprite + "#icon-trash"}></use></Svg>Delete</Delet>
+          <Edit onClick={handleEditClick} type="button">
+            <Svg>
+              <use xlinkHref={sprite + '#icon-pen'}></use>
+            </Svg>
+            Edit
+          </Edit>
+          <Delet type="submit">
+            <Svg>
+              <use xlinkHref={sprite + '#icon-trash'}></use>
+            </Svg>
+            Delete
+          </Delet>
         </Wrapper>
       </Modal>
-      <EditWordForm isOpenModal={isOpenEditModal}
-     setIsOpenModal={setIsOpenEditModal}
-     wordData = {wordData}/>
-    
+      <EditWordForm
+        isOpenModal={isOpenEditModal}
+        setIsOpenModal={setIsOpenEditModal}
+        wordData={wordData}
+      />
     </>
   );
 };

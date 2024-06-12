@@ -1,12 +1,12 @@
-import React from "react";
-import { Wrapper, List, Button, Activ } from "./Pagination.styled";
+import React from 'react';
+import { Wrapper, List, Button, Activ } from './Pagination.styled';
 
 const Pagination = ({ totalPages, page, onPageChange }) => {
   // const handlePageChange = (page) => {
   //   onPageChange(page);
   // };
 
-  const handlePageChange = (newPage) => {
+  const handlePageChange = newPage => {
     if (newPage !== page) {
       onPageChange(newPage);
     }
@@ -15,7 +15,7 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
   const renderPageNumbers = () => {
     const pageNumbers = [];
 
-    const renderDots = (key) => (
+    const renderDots = key => (
       <li key={key} className="dots">
         ...
       </li>
@@ -24,10 +24,8 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
     if (totalPages <= 7) {
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(
-          <li key={i} className={page === i ? "active" : ""}>
-            <Activ active={page === i}
-              onClick={() => handlePageChange(i)}
-            >
+          <li key={i} className={page === i ? 'active' : ''}>
+            <Activ active={page === i} onClick={() => handlePageChange(i)}>
               {i}
             </Activ>
           </li>
@@ -47,24 +45,20 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
 
       for (let i = s; i <= e; i++) {
         pageNumbers.push(
-          <li key={i} className={page === i ? "active" : ""}>
-            <Activ active={page === i}
-              onClick={() => handlePageChange(i)}
-            >
+          <li key={i} className={page === i ? 'active' : ''}>
+            <Activ active={page === i} onClick={() => handlePageChange(i)}>
               {i}
             </Activ>
           </li>
         );
       }
 
-      pageNumbers.push(renderDots("dots1"));
+      pageNumbers.push(renderDots('dots1'));
 
       for (let i = totalPages; i <= totalPages; i++) {
         pageNumbers.push(
           <li key={i}>
-            <Activ active={page === i}
-              onClick={() => handlePageChange(i)}
-            >
+            <Activ active={page === i} onClick={() => handlePageChange(i)}>
               {i}
             </Activ>
           </li>
@@ -76,45 +70,30 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
   };
 
   return (
-    <Wrapper >
+    <Wrapper>
       <List>
         <li>
-          <Button
-            disabled={page === 1}
-            onClick={() => handlePageChange(1)}
-           
-          >
-            {"<<"}
+          <Button disabled={page === 1} onClick={() => handlePageChange(1)}>
+            {'<<'}
           </Button>
         </li>
         {page !== 1 && (
           <li>
-            <Button
-              onClick={() => handlePageChange(page - 1)}
-              
-            >
-              {"<"}
-            </Button>
+            <Button onClick={() => handlePageChange(page - 1)}>{'<'}</Button>
           </li>
         )}
         {renderPageNumbers()}
         {page !== totalPages && (
           <li>
-            <Button
-              onClick={() => handlePageChange(page + 1)}
-              
-            >
-              {">"}
-            </Button>
+            <Button onClick={() => handlePageChange(page + 1)}>{'>'}</Button>
           </li>
         )}
         <li>
           <Button
             disabled={page === totalPages}
             onClick={() => handlePageChange(totalPages)}
-            
           >
-            {">>"}
+            {'>>'}
           </Button>
         </li>
       </List>

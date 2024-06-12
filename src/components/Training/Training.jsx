@@ -1,8 +1,8 @@
-import { TrainingRoom } from "./TrainingRoom";
-export const Training =()=> {
-    return(
-        <>
-        <TrainingRoom/>
-        </>
-    )
-}
+import { TrainingRoom } from './TrainingRoom';
+export const Training = () => {
+  return (
+    <>
+      <TrainingRoom />
+    </>
+  );
+};

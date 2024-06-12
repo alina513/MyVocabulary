@@ -192,14 +192,17 @@ import {
   SvgAdd,
   SpanAdd,
   ButtonAdd,
-   Container
 } from './DictionaryTable.styled';
 import sprite from '../../assets/sprite.svg';
 import CircularProgress from '../Progress';
 
 import Pagination from '../Pagination/Pagination';
 
-import { fetchWords, fetchWordsRecommend, addRecommendWord } from '../../redux/words/operation';
+import {
+  fetchWords,
+  fetchWordsRecommend,
+  addRecommendWord,
+} from '../../redux/words/operation';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
@@ -208,12 +211,14 @@ import {
   selectTotalPage,
   selectFiltersKeyWord,
   selectFiltersCategory,
-  selectWordsRecommend
+  selectWordsRecommend,
+  selectIsLoading,
 } from '../../redux/words/selectors';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
 import { EditWordModal } from '../../components/Modal/EditWordModal';
 import { useState } from 'react';
+import { Loader } from '../../components/Loader';
 
 export function DictionaryTable({ exam }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -224,8 +229,6 @@ export function DictionaryTable({ exam }) {
     setIsOpenModal(true);
   };
 
-  
-
   const words = useSelector(selectWords);
   const recommend = useSelector(selectWordsRecommend);
   const token = useSelector(selectToken);
@@ -233,11 +236,12 @@ export function DictionaryTable({ exam }) {
   const currentPage = useSelector(selectCurrentPage);
   const keyword = useSelector(selectFiltersKeyWord);
   const category = useSelector(selectFiltersCategory);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
-  const handleAddRecommend =  id => {
-   dispatch(addRecommendWord({id, token}))
-  }
+  const handleAddRecommend = id => {
+    dispatch(addRecommendWord({ id, token }));
+  };
 
   // useEffect(() => {
   //   dispatch(fetchWords({ token, page: currentPage, keyword, category }));
@@ -251,10 +255,11 @@ export function DictionaryTable({ exam }) {
     if (exam) {
       dispatch(fetchWords({ token, page: currentPage, keyword, category }));
     } else {
-      dispatch(fetchWordsRecommend({ token, page: currentPage, keyword, category }));
+      dispatch(
+        fetchWordsRecommend({ token, page: currentPage, keyword, category })
+      );
     }
   }, [dispatch, token, currentPage, keyword, category, exam]);
-
 
   const columnHelper = createColumnHelper();
 
@@ -309,12 +314,12 @@ export function DictionaryTable({ exam }) {
         ),
       }),
       columnHelper.accessor('category', {
-        header: () => 'Category',
-        cell: info => info.getValue(),
+        header: () => <span className="category-exam">Category</span>,
+        cell: info => <span className="category-exam">{info.getValue()}</span>,
       }),
       columnHelper.accessor('progress', {
         header: () => <span>Progress</span>,
-        cell: info => <CircularProgress progress={info.getValue()} />
+        cell: info => <CircularProgress progress={info.getValue()} />,
       }),
       columnHelper.accessor('status', {
         header: () => <Hidden>Status</Hidden>,
@@ -351,14 +356,21 @@ export function DictionaryTable({ exam }) {
       }),
       columnHelper.accessor('category', {
         header: () => 'Category',
-        cell: info => info.getValue(),
+        cell: info => <span>{info.getValue()}</span>,
       }),
 
       columnHelper.accessor('status', {
         header: () => <Hidden>Status</Hidden>,
         cell: info => (
           <ButtonAdd onClick={() => handleAddRecommend(info.row.original._id)}>
-            {info.getValue() || <SpanAdd>Add to dictionary<SvgAdd><use xlinkHref={sprite + "#icon-switch"}></use></SvgAdd></SpanAdd>}
+            {info.getValue() || (
+              <SpanAdd>
+                Add to dictionary
+                <SvgAdd>
+                  <use xlinkHref={sprite + '#icon-switch'}></use>
+                </SvgAdd>
+              </SpanAdd>
+            )}
           </ButtonAdd>
         ),
       }),
@@ -366,9 +378,12 @@ export function DictionaryTable({ exam }) {
   }
 
   let value;
-if (exam) {value = words}
-else {value = recommend}
-  
+  if (exam) {
+    value = words;
+  } else {
+    value = recommend;
+  }
+
   const table = useReactTable({
     data: value,
     columns,
@@ -376,43 +391,62 @@ else {value = recommend}
   });
 
   const handlePageChange = newPage => {
-    if(exam) {
-    dispatch(fetchWords({ token, page: newPage }));}
-    else {dispatch(fetchWordsRecommend({ token, page: newPage }))}
+    if (exam) {
+      dispatch(fetchWords({ token, page: newPage }));
+    } else {
+      dispatch(fetchWordsRecommend({ token, page: newPage }));
+    }
   };
 
   return (
     <>
       <Wrapper>
-        <Table>
-          <thead>
-            {table.getHeaderGroups().map(headerGroup => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map(header => (
-                  <Th key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </Th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {table.getRowModel().rows.map(row => (
-              <Tr key={row.id}>
-                {row.getVisibleCells().map(cell => (
-                  <Td key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </Td>
-                ))}
-              </Tr>
-            ))}
-          </tbody>
-        </Table>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <Table>
+            <thead>
+              {table.getHeaderGroups().map(headerGroup => (
+                <tr key={headerGroup.id}>
+                  {headerGroup.headers.map(header => (
+                    <Th key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </Th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody>
+              {table.getRowModel().rows.map(row => (
+                <Tr key={row.id}>
+                  {row.getVisibleCells().map(cell => (
+                    // <Td key={cell.id}>
+                    //   {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    // </Td>
+                    <Td
+                      key={cell.id}
+                      className={
+                        exam && cell.column.id === 'category'
+                          ? 'category-exam'
+                          : ''
+                      }
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </Td>
+                  ))}
+                </Tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
         <EditWordModal
           isOpenModal={isOpenModal}
           setIsOpenModal={setIsOpenModal}

@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://vocab-builder-backend.p.goit.global/api';
 
-const setAuthHeader = (token) => {
+const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -30,35 +30,30 @@ export const signUp = createAsyncThunk(
   }
 );
 
-
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/users/signin', credentials);
       setAuthHeader(res.data.token);
-      const params = await axios.get("/users/current");
+      const params = await axios.get('/users/current');
       return params.data;
     } catch (error) {
-      toast.error("Email or password is wrong");
+      toast.error('Email or password is wrong');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-
-export const logOut = createAsyncThunk(
-  'auth/logout',
-  async (_, thunkAPI) => {
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/signout');
     clearAuthHeader();
   } catch (error) {
-    toast.error("Something went wrong");
+    toast.error('Something went wrong');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',

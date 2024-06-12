@@ -1,18 +1,19 @@
-
 import Modal from 'react-modal';
 
 import sprite from '../../assets/sprite.svg';
-import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { selectToken } from '../../redux/auth/selectors';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { selectResults } from '../../redux/words/selectors';
-import { Title, Wrapper, WrapperRes, Desc, Item, ButtonClose, Close , Container} from './WellDoneModal.styled';
+import {
+  Title,
+  Wrapper,
+  WrapperRes,
+  Desc,
+  Item,
+  ButtonClose,
+  Close,
+  Container,
+} from './WellDoneModal.styled';
 Modal.setAppElement('#modal');
-
-
 
 export const WellDoneModal = ({ isOpenModal, setIsOpenModal }) => {
   const customStyles = {
@@ -36,13 +37,10 @@ export const WellDoneModal = ({ isOpenModal, setIsOpenModal }) => {
     },
   };
 
-  
   const results = useSelector(selectResults);
 
-const doneTasks = results.filter(task => task.isDone);
-const notDoneTasks = results.filter(task => !task.isDone);
-  
-  
+  const doneTasks = results.filter(task => task.isDone);
+  const notDoneTasks = results.filter(task => !task.isDone);
 
   return (
     <>
@@ -55,7 +53,7 @@ const notDoneTasks = results.filter(task => !task.isDone);
         contentLabel="More info modal"
       >
         <Container>
-        <ButtonClose onClick={() => setIsOpenModal(false)}>
+          <ButtonClose onClick={() => setIsOpenModal(false)}>
             <Close>
               <use xlinkHref={sprite + '#icon-close'}></use>
             </Close>
@@ -63,25 +61,24 @@ const notDoneTasks = results.filter(task => !task.isDone);
           <Title>Well done</Title>
           <Wrapper>
             <WrapperRes>
-                <Desc>Сorrect answers: </Desc>
-                <ul>
-        {doneTasks.map(task => (
-          <Item key={task._id}>{task.en}</Item>
-        ))}
-      </ul>
+              <Desc>Сorrect answers: </Desc>
+              <ul>
+                {doneTasks.map(task => (
+                  <Item key={task._id}>{task.en}</Item>
+                ))}
+              </ul>
             </WrapperRes>
             <WrapperRes>
-                <Desc>Mistakes:</Desc>
-          <ul>
-        {notDoneTasks.map(task => (
-          <Item key={task._id}>{task.en}</Item>
-        ))}
-      </ul>
-      </WrapperRes>
-      </Wrapper>
-      </Container>
+              <Desc>Mistakes:</Desc>
+              <ul>
+                {notDoneTasks.map(task => (
+                  <Item key={task._id}>{task.en}</Item>
+                ))}
+              </ul>
+            </WrapperRes>
+          </Wrapper>
+        </Container>
       </Modal>
     </>
   );
 };
-

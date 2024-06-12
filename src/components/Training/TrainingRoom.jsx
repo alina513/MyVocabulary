@@ -25,6 +25,7 @@ import { fetchTasks, addAnswers } from '../../redux/words/operation';
 import sprite from '../../assets/sprite.svg';
 import { Circle } from 'rc-progress';
 import { WellDoneModal } from '../../components/Modal/WellDoneModal';
+import { Empty } from './Empty';
 
 export const TrainingRoom = () => {
   const token = useSelector(selectToken);
@@ -128,6 +129,7 @@ const handleNextTask = () => {
 
   return (
     <>
+    {tasks.length > 0 ? (<>
     <Con>
       <CircularProgress progress={progress}/>
       </Con>
@@ -181,6 +183,7 @@ const handleNextTask = () => {
         </ContainerButton>
       </form>
       <WellDoneModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
+    </>) : (<Empty/>)}
     </>
   );
 };

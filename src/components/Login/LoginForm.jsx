@@ -54,7 +54,7 @@ export const LoginForm = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = data => {
-    dispatch(logIn(data))
+    dispatch(logIn(data));
   };
 
   const handleButtonClick = () => {
@@ -82,7 +82,7 @@ export const LoginForm = () => {
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Title>Login</Title>
       <Text>
-      Please enter your login details to continue using our service:
+        Please enter your login details to continue using our service:
       </Text>
       <Input
         placeholder="Email"
@@ -116,7 +116,7 @@ export const LoginForm = () => {
       <Button type="submit" onClick={handleButtonClick}>
         Login
       </Button>
-      <NavLink to="/register">Register</NavLink>
+      <NavLink to="/">Register</NavLink>
     </Form>
   );
 };

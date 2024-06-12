@@ -1,9 +1,11 @@
-import { Registration } from "../components/Registration/Registration"
+import { Registration } from '../components/Registration/Registration';
+import { Toaster } from 'react-hot-toast';
 
-export default function RegistrationPage () {
-    return(
-        <>
-        <Registration/>
-        </>
-    )
+export default function RegistrationPage() {
+  return (
+    <>
+      <Toaster />
+      <Registration />
+    </>
+  );
 }

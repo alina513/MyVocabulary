@@ -56,8 +56,8 @@ export const RegisterForm = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = data => {
-    console.log("DATA", data);
-    dispatch(signUp(data))
+    console.log('DATA', data);
+    dispatch(signUp(data));
   };
 
   const handleButtonClick = () => {

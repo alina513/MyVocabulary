@@ -1,11 +1,9 @@
 import Modal from 'react-modal';
-import { Edit, Delet } from './EditwordModal.styled';
 
 import sprite from '../../assets/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
 
-import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { editWord } from '../../redux/words/operation';
 import { useState } from 'react';
@@ -20,13 +18,12 @@ import {
   Lang,
   SvgLang,
   ButtonContainer,
-  AddButton, 
+  AddButton,
   CancelButton,
-  ErrorMessage
+  ErrorMessage,
 } from './EditWordForm.styled';
 
 Modal.setAppElement('#modal');
-
 
 const schema = yup
   .object({
@@ -41,13 +38,8 @@ const schema = yup
   })
   .required();
 
-export const EditWordForm = ({
-  isOpenModal,
-  setIsOpenModal,
-  wordData
-}) =>
-
- {const customStyles = {
+export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
+  const customStyles = {
     overlay: {
       backgroundColor: 'rgba(18, 20, 23, 0.2)',
     },
@@ -70,33 +62,31 @@ export const EditWordForm = ({
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleEditClick = () => {
-    setIsOpenModal(true);
-  };
+  // const handleEditClick = () => {
+  //   setIsOpenModal(true);
+  // };
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
 
-  const handleSubmit = async (event) => {
-    try{
-    event.preventDefault();
-    const en = event.target.elements.eng.value;
-    const ua = event.target.elements.ukr.value;
-    const category = wordData.category;
-    const isIrregular = wordData.isIrregular;
-    const id = wordData._id;
-    await schema.validate({ eng: en, ukr: ua });
-  
+  const handleSubmit = async event => {
+    try {
+      event.preventDefault();
+      const en = event.target.elements.eng.value;
+      const ua = event.target.elements.ukr.value;
+      const category = wordData.category;
+      const isIrregular = wordData.isIrregular;
+      const id = wordData._id;
+      await schema.validate({ eng: en, ukr: ua });
 
-    dispatch(editWord({ id, en, ua, category, isIrregular, token }));
-    event.target.reset();
-    setIsOpenModal(false);
-    setErrorMessage(''); }
-    catch (error) {
-      setErrorMessage(error.message); 
+      dispatch(editWord({ id, en, ua, category, isIrregular, token }));
+      event.target.reset();
+      setIsOpenModal(false);
+      setErrorMessage('');
+    } catch (error) {
+      setErrorMessage(error.message);
       // toast.error(error.message);
     }
   };
-
 
   return (
     <>

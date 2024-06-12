@@ -1,4 +1,3 @@
-
 // import Modal from 'react-modal';
 // import * as yup from 'yup';
 // import {
@@ -76,7 +75,6 @@
 //     const ua = event.target.elements.ukr.value;
 //     const category = event.target.elements.categories.value;
 //     const isIrregular = event.target.elements.verb?.value;
-    
 
 //     dispatch(addWord({ en, ua, category, isIrregular, token }));
 //     event.target.reset();
@@ -197,7 +195,6 @@
 //   );
 // };
 
-
 import Modal from 'react-modal';
 import * as yup from 'yup';
 import {
@@ -219,11 +216,10 @@ import {
   InputContainer,
   ButtonContainer,
   RadioText,
-  ErrorMessage
+  ErrorMessage,
 } from './ModalAddWord.styled';
 import sprite from '../../assets/sprite.svg';
 import { addWord, fetchCategories } from '../../redux/words/operation';
-import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
@@ -273,20 +269,19 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    try{
-    const en = event.target.elements.eng.value;
-    const ua = event.target.elements.ukr.value;
-    const category = event.target.elements.categories.value;
-    const isIrregular = event.target.elements.verb?.value;
-    await schema.validate({ eng: en, ukr: ua });
-    
+    try {
+      const en = event.target.elements.eng.value;
+      const ua = event.target.elements.ukr.value;
+      const category = event.target.elements.categories.value;
+      const isIrregular = event.target.elements.verb?.value;
+      await schema.validate({ eng: en, ukr: ua });
 
-    dispatch(addWord({ en, ua, category, isIrregular, token }));
-    event.target.reset();
-    setIsOpenModalLogin(false);
-  setErrorMessage("");}
-    catch (error) {
-      // 
+      dispatch(addWord({ en, ua, category, isIrregular, token }));
+      event.target.reset();
+      setIsOpenModalLogin(false);
+      setErrorMessage('');
+    } catch (error) {
+      //
       setErrorMessage(errorMessage);
     }
   };
@@ -297,13 +292,13 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
 
   const categories = useSelector(selectCategories);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [isIrregular, setIsIrregular] = useState("false");
+  const [isIrregular, setIsIrregular] = useState('false');
 
   const handleCategoryChange = event => {
     setSelectedCategory(event.target.value);
   };
 
-  const handleRadioChange = (event) => {
+  const handleRadioChange = event => {
     setIsIrregular(event.target.value);
   };
 
@@ -334,7 +329,7 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
             name="categories"
             onChange={handleCategoryChange}
           >
-            <option value="" ></option>
+            <option value=""></option>
             {categories &&
               categories.map(category => (
                 <option key={category} value={category}>
@@ -350,8 +345,8 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
                 name="verb"
                 id="regular"
                 value="false"
-                checked={isIrregular === "false"}
-            onChange={handleRadioChange}
+                checked={isIrregular === 'false'}
+                onChange={handleRadioChange}
               ></Radio>
               <Label htmlFor="regular">Regular</Label>
               <Radio
@@ -359,16 +354,17 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
                 name="verb"
                 id="irregular"
                 value="true"
-                checked={isIrregular === "true"}
-            onChange={handleRadioChange}
-
+                checked={isIrregular === 'true'}
+                onChange={handleRadioChange}
               ></Radio>
               <Label htmlFor="irregular">Irregular</Label>
             </RadioContainer>
           )}
-          {isIrregular === "true" && (
-          <RadioText>Such data must be entered in the format I form-II form-III form.</RadioText>
-        )}
+          {isIrregular === 'true' && (
+            <RadioText>
+              Such data must be entered in the format I form-II form-III form.
+            </RadioText>
+          )}
 
           <InputContainer>
             <Input name="ukr"></Input>
@@ -381,7 +377,6 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
             </ContainerLang>
           </InputContainer>
           <InputContainer>
-          
             <Input name="eng"></Input>
 
             <ContainerLang>
@@ -407,4 +402,3 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
     </>
   );
 };
-
