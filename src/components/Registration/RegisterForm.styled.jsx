@@ -9,6 +9,8 @@ export const Form = styled.form`
   background-color: rgba(133, 170, 159, 0.1);
   padding: 32px 16px;
   margin-top: 211px;
+  margin-right: auto;
+  margin-left: auto;
 
   @media screen and (min-width: 768px) {
     box-sizing: border-box;

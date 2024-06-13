@@ -5,8 +5,8 @@ import bgmob from '../../assets/background/bgmobile.png';
 export const Wrapper = styled.div`
   box-sizing: border-box;
   background-color: ${p => p.theme.colors.white};
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding-top: 16px;
 
   background-image: url(${bgmob});
@@ -17,23 +17,24 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     background-image: none;
+    // padding-right: 100px;
+    // padding-left: 100px;
   }
 
   @media screen and (min-width: 1440px) {
     box-sizing: border-box;
     display: flex;
     background-color: ${p => p.theme.colors.white};
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     padding: 24px 134px 104px 100px;
 
     // box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
     background-image: url(${bg1x});
-    // background-size: 28%;
-    background-size: content, cover;
+    background-size: 33%;
     background-repeat: no-repeat;
-    background-position: 820px 170px;
+    background-position: 780px 190px;
     position: relative;
   }
 `;
@@ -77,8 +78,8 @@ export const List = styled.ul`
   @media screen and (min-width: 768px) {
     display: flex;
     margin-top: 98px;
-    margin-left: 167px;
     margin-top: 570px;
+    margin-left: 87px;
   }
 `;
 

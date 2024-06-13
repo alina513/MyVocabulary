@@ -4,15 +4,13 @@ import {
   Svg,
   Text,
   List,
-  ItemText,
-  MainContainer,
+  ItemText
 } from './Login.styled';
 import { LoginForm } from './LoginForm';
 import sprite from '../../assets/sprite.svg';
 
 export const Login = () => {
   return (
-    <MainContainer>
       <Wrapper>
         <div>
           <Logo>
@@ -30,6 +28,5 @@ export const Login = () => {
           <ItemText>Progress</ItemText>
         </List>
       </Wrapper>
-    </MainContainer>
   );
 };

@@ -7,12 +7,11 @@ import {
   ItemText,
 } from './Registration.styled';
 import { RegisterForm } from './RegisterForm';
-import { MainContainer } from '../Login/Login.styled';
 import sprite from '../../assets/sprite.svg';
 
 export const Registration = () => {
   return (
-    <MainContainer>
+    
       <Wrapper>
         <div>
           <Logo>
@@ -30,6 +29,5 @@ export const Registration = () => {
           <ItemText>Progress</ItemText>
         </List>
       </Wrapper>
-    </MainContainer>
   );
 };

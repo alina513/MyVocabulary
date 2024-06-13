@@ -9,11 +9,13 @@ export const Form = styled.form`
   background-color: rgba(133, 170, 159, 0.1);
   padding: 32px 18px;
   margin-top: 333px;
+  margin-right: auto;
+  margin-left: auto;
 
   @media screen and (min-width: 768px) {
     width: 628px;
     height: 592px;
-    padding: 48px 64px;
+    padding: 48px 64px 48px 64px;
     margin-top: 114px;
   }
 `;
