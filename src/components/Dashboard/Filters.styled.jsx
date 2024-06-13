@@ -1,21 +1,33 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
+margin-bottom: 8px;
   box-sizing: border-box;
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 15px;
   padding: 12px 24px;
-  width: 274px;
+  width: 343px;
   height: 48px;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   display: block;
   color: ${p => p.theme.colors.black};
-  background-color: transparent;
+  background-color: #FFFFFF;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+    width: 274px;
+  height: 48px;
+  }
 `;
 
 export const Select = styled.select`
+box-sizing: border-box;
+display: flex;
+width: 343px;
+  height: 48px;
+  padding: 12px 24px;
+@media screen and (min-width: 768px) {
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 15px;
   padding: 12px 24px;
@@ -27,7 +39,7 @@ export const Select = styled.select`
   color: ${p => p.theme.colors.black};
   margin-left: 8px;
   display: block;
-  background-color: transparent;
+  background-color: #FFFFFF;}
 `;
 export const Container = styled.div`
   margin-bottom: 40px;

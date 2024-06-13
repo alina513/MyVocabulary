@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   width: 343px;
   height: 563px;
   margin-top: 32px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  height: 666px;
+  }
 
   @media screen and (min-width: 1440px) {
     padding: 18px;
@@ -20,6 +24,9 @@ export const Wrapper = styled.div`
 `;
 export const Container = styled.div`
   width: 343px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
   @media screen and (min-width: 1440px) {
     width: 1240px;
     height: 540px;
@@ -27,8 +34,13 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
-  width: 303px;
+  width: 343px;
   height: 540px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  height: 666px;
+  }
 
   @media screen and (min-width: 1440px) {
     width: 1240px;
@@ -48,8 +60,10 @@ export const Span = styled.span`
 `;
 
 export const Th = styled.th`
-  padding: 0px;
-  height: 54px;
+box-sizing: border-box;
+padding: 16px 0px 16px 14px;
+width; 84px;
+  // height: 54px;
   font-weight: 500;
   font-size: 16px;
 
@@ -67,7 +81,8 @@ export const Th = styled.th`
 `;
 
 export const Tr = styled.tr`
-  height: 70px;
+box-sizing: border-box;
+  // height: 70px;
 
   &:last-child td {
     border-bottom: none;
@@ -88,7 +103,7 @@ color: ${p => p.theme.colors.black};
 }
 border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
-  padding: 0px;
+  padding: 10px 0px 10px 14px;
 
   &:last-child {
     border-right: none; /* Прибираємо правий бордер у останньої комірки в рядку */
@@ -130,12 +145,22 @@ export const SvgAdd = styled.svg`
   height: 20px;
 `;
 
+export const SpanAddWord = styled.span`
+display: none;
+@media screen and (min-width: 768px) {
+  display: block;}
+` 
+
 export const SpanAdd = styled.span`
+@media screen and (min-width: 768px) {
   font-weight: 500;
   font-size: 16px;
-  display: flex;
+  display: block;
   align-items: center;
-  gap: 8px;
+  gap: 8px;}
+  @media screen and (min-width: 1440px) {
+    display: flex;
+  }
 `;
 export const ButtonAdd = styled.button`
   font-weight: 500;

@@ -25,7 +25,7 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(
           <li key={i} className={page === i ? 'active' : ''}>
-            <Activ active={page === i} onClick={() => handlePageChange(i)}>
+            <Activ active={page === i } onClick={() => handlePageChange(i)}>
               {i}
             </Activ>
           </li>
@@ -46,7 +46,7 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
       for (let i = s; i <= e; i++) {
         pageNumbers.push(
           <li key={i} className={page === i ? 'active' : ''}>
-            <Activ active={page === i} onClick={() => handlePageChange(i)}>
+            <Activ active={page === i } onClick={() => handlePageChange(i)}>
               {i}
             </Activ>
           </li>
@@ -58,7 +58,7 @@ const Pagination = ({ totalPages, page, onPageChange }) => {
       for (let i = totalPages; i <= totalPages; i++) {
         pageNumbers.push(
           <li key={i}>
-            <Activ active={page === i} onClick={() => handlePageChange(i)}>
+            <Activ active={page === i } onClick={() => handlePageChange(i)}>
               {i}
             </Activ>
           </li>

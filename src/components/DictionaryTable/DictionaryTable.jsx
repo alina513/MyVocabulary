@@ -192,6 +192,7 @@ import {
   SvgAdd,
   SpanAdd,
   ButtonAdd,
+  SpanAddWord,
 } from './DictionaryTable.styled';
 import sprite from '../../assets/sprite.svg';
 import CircularProgress from '../Progress';
@@ -202,6 +203,7 @@ import {
   fetchWords,
   fetchWordsRecommend,
   addRecommendWord,
+  fetchTasks
 } from '../../redux/words/operation';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -250,6 +252,10 @@ export function DictionaryTable({ exam }) {
   // useEffect(() => {
   //   dispatch(fetchWordsRecommend({ token, page: currentPage, keyword, category }));
   // }, [dispatch, token, currentPage, keyword, category]);
+
+  useEffect(() => {
+    dispatch(fetchTasks({ token }));
+  }, [dispatch, token]);
 
   useEffect(() => {
     if (exam) {
@@ -362,10 +368,10 @@ export function DictionaryTable({ exam }) {
       columnHelper.accessor('status', {
         header: () => <Hidden>Status</Hidden>,
         cell: info => (
-          <ButtonAdd onClick={() => handleAddRecommend(info.row.original._id)}>
+          <ButtonAdd type="submit" onClick={() => handleAddRecommend(info.row.original._id)}>
             {info.getValue() || (
               <SpanAdd>
-                Add to dictionary
+                <SpanAddWord> Add to dictionary</SpanAddWord>
                 <SvgAdd>
                   <use xlinkHref={sprite + '#icon-switch'}></use>
                 </SvgAdd>

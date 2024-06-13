@@ -15,7 +15,7 @@ export const UserBar = () => {
     dispatch(logOut());
   };
   if (!user) {
-    return null; // Або замініть це на індикатор завантаження, якщо бажаєте
+    return null; 
   }
   return (
     <Container>

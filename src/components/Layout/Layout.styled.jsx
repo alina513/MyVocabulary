@@ -10,17 +10,18 @@ export const Container = styled.div`
     width: 375px;
     height: 1011px;
     // padding: 0px 16px 48px 16px;
-    padding: 0px 0px 48px 0px;
+    // padding: 0px 0px 48px 0px;
   }
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    height: 1076px;
-    padding: 0px 32px 48px 32px;
+    // height: 1076px;
+    height: 100vh;
+    // padding: 0px 32px 48px 32px;
   }
   @media screen and (min-width: 1440px) {
     width: 1440px;
     height: 992px;
-    padding: 0px 100px 48px 100px;
+    // padding: 0px 100px 48px 100px;
   }
 `;

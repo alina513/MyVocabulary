@@ -4,7 +4,10 @@
   "private": true,
   "homepage": "https://alina513.github.io/MyVocabulary/",
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@hookform/resolvers": "^3.4.2",
+    "@mui/material": "^5.15.20",
     "@reduxjs/toolkit": "^2.2.5",
     "@tanstack/react-table": "^8.17.3",
     "@testing-library/jest-dom": "^5.16.3",

@@ -61,6 +61,7 @@ export const Svg = styled.svg`
 `;
 
 export const Text = styled.p`
+font-weight: 600;
   font-size: 18px;
   line-height: 133%;
   @media screen and (min-width: 768px) {

@@ -9,7 +9,8 @@ export const Wrapper = styled.div`
   margin-bottom: 40px;
   display: flex;
   gap: 32px;
-  @media only screen and (max-width: 767px) {
+  padding: 10px;
+  @media screen and (max-width: 767px) {
     max-width: 581px;
     margin-top: 140px;
     flex-direction: column-reverse;
@@ -17,8 +18,12 @@ export const Wrapper = styled.div`
 `;
 
 export const BtnWrapper = styled.div`
+display: block;
+margin-left: auto;
+  margin-right: auto;
+@media screen and (min-width: 767px) {
   display: flex;
-  gap: 10px;
+  gap: 10px;}
 `;
 
 export const Title = styled.h1`
