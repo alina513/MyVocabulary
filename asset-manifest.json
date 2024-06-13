@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/MyVocabulary/static/css/main.d43e6368.css",
-    "main.js": "/MyVocabulary/static/js/main.a3b24664.js",
+    "main.js": "/MyVocabulary/static/js/main.dca1fa13.js",
     "static/js/936.ba3a5a7f.chunk.js": "/MyVocabulary/static/js/936.ba3a5a7f.chunk.js",
-    "static/js/985.677f009d.chunk.js": "/MyVocabulary/static/js/985.677f009d.chunk.js",
+    "static/js/985.84f0618f.chunk.js": "/MyVocabulary/static/js/985.84f0618f.chunk.js",
     "static/js/323.0a817ad9.chunk.js": "/MyVocabulary/static/js/323.0a817ad9.chunk.js",
     "static/js/161.0b9f831c.chunk.js": "/MyVocabulary/static/js/161.0b9f831c.chunk.js",
     "static/js/492.1343a602.chunk.js": "/MyVocabulary/static/js/492.1343a602.chunk.js",
@@ -13,8 +13,8 @@
     "static/js/131.2b83a97f.chunk.js": "/MyVocabulary/static/js/131.2b83a97f.chunk.js",
     "static/js/695.dab169be.chunk.js": "/MyVocabulary/static/js/695.dab169be.chunk.js",
     "static/js/537.bd6e34ac.chunk.js": "/MyVocabulary/static/js/537.bd6e34ac.chunk.js",
-    "static/js/649.d9d4ec1f.chunk.js": "/MyVocabulary/static/js/649.d9d4ec1f.chunk.js",
-    "static/js/763.ef46069b.chunk.js": "/MyVocabulary/static/js/763.ef46069b.chunk.js",
+    "static/js/649.e8c15378.chunk.js": "/MyVocabulary/static/js/649.e8c15378.chunk.js",
+    "static/js/763.ea8c2afb.chunk.js": "/MyVocabulary/static/js/763.ea8c2afb.chunk.js",
     "static/media/SF-Pro-Display-Light.otf": "/MyVocabulary/static/media/SF-Pro-Display-Light.5a47a04ca76b10e69ca3.otf",
     "static/media/SF-Pro-Display-Regular.otf": "/MyVocabulary/static/media/SF-Pro-Display-Regular.d1f5e6e16dd4f75c3950.otf",
     "static/media/bg-1x.png": "/MyVocabulary/static/media/bg-1x.f046cfce1aa66c4c6492.png",
@@ -29,9 +29,9 @@
     "static/media/sprite.svg": "/MyVocabulary/static/media/sprite.abe6367e9a8d746a715eaa88b09b12d9.svg",
     "index.html": "/MyVocabulary/index.html",
     "main.d43e6368.css.map": "/MyVocabulary/static/css/main.d43e6368.css.map",
-    "main.a3b24664.js.map": "/MyVocabulary/static/js/main.a3b24664.js.map",
+    "main.dca1fa13.js.map": "/MyVocabulary/static/js/main.dca1fa13.js.map",
     "936.ba3a5a7f.chunk.js.map": "/MyVocabulary/static/js/936.ba3a5a7f.chunk.js.map",
-    "985.677f009d.chunk.js.map": "/MyVocabulary/static/js/985.677f009d.chunk.js.map",
+    "985.84f0618f.chunk.js.map": "/MyVocabulary/static/js/985.84f0618f.chunk.js.map",
     "323.0a817ad9.chunk.js.map": "/MyVocabulary/static/js/323.0a817ad9.chunk.js.map",
     "161.0b9f831c.chunk.js.map": "/MyVocabulary/static/js/161.0b9f831c.chunk.js.map",
     "492.1343a602.chunk.js.map": "/MyVocabulary/static/js/492.1343a602.chunk.js.map",
@@ -41,11 +41,11 @@
     "131.2b83a97f.chunk.js.map": "/MyVocabulary/static/js/131.2b83a97f.chunk.js.map",
     "695.dab169be.chunk.js.map": "/MyVocabulary/static/js/695.dab169be.chunk.js.map",
     "537.bd6e34ac.chunk.js.map": "/MyVocabulary/static/js/537.bd6e34ac.chunk.js.map",
-    "649.d9d4ec1f.chunk.js.map": "/MyVocabulary/static/js/649.d9d4ec1f.chunk.js.map",
-    "763.ef46069b.chunk.js.map": "/MyVocabulary/static/js/763.ef46069b.chunk.js.map"
+    "649.e8c15378.chunk.js.map": "/MyVocabulary/static/js/649.e8c15378.chunk.js.map",
+    "763.ea8c2afb.chunk.js.map": "/MyVocabulary/static/js/763.ea8c2afb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d43e6368.css",
-    "static/js/main.a3b24664.js"
+    "static/js/main.dca1fa13.js"
   ]
 }
