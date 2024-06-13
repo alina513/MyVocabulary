@@ -25,21 +25,22 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   width: 343px;
   @media screen and (min-width: 768px) {
-    width: 704px;
+    width: 666px;
   }
   @media screen and (min-width: 1440px) {
     width: 1240px;
-    height: 540px;
+    height: 640px;
   }
 `;
 
 export const Table = styled.table`
+box-sizing: border-box;
   width: 343px;
   height: 540px;
 
   @media screen and (min-width: 768px) {
     width: 704px;
-  height: 666px;
+  height: 566px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -83,6 +84,7 @@ width; 84px;
 export const Tr = styled.tr`
 box-sizing: border-box;
   // height: 70px;
+  height: 30px;
 
   &:last-child td {
     border-bottom: none;
@@ -117,7 +119,7 @@ border-bottom: 1px solid #dbdbdb;
   @media screen and (min-width: 1440px) {
     font-weight: 500;
 font-size: 20px;
-padding:  15px 22px 15px 22px;
+padding:  0px 22px 0px 22px;
   }
 `;
 export const Button = styled.button`

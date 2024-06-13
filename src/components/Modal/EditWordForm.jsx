@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { editWord } from '../../redux/words/operation';
 import { useState } from 'react';
 import * as yup from 'yup';
+import toast from 'react-hot-toast'; 
 import {
   Wrapper,
   ButtonClose,
@@ -84,7 +85,7 @@ export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
       setErrorMessage('');
     } catch (error) {
       setErrorMessage(error.message);
-      // toast.error(error.message);
+      toast.error(error.message);
     }
   };
 
