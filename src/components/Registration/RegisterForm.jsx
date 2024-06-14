@@ -56,7 +56,6 @@ export const RegisterForm = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = data => {
-    console.log('DATA', data);
     dispatch(signUp(data));
   };
 
@@ -71,13 +70,12 @@ export const RegisterForm = () => {
   const renderValidationMessage = field => {
     if (!isSubmitted) return null;
     const value = watch(field);
-    console.log(value);
     const error = errors[field];
 
     if (value && !error) {
       return <SuccessMessage>Success {field}</SuccessMessage>;
     } else if (error) {
-      return <ErrorMessage>Error {field}</ErrorMessage>;
+      return <ErrorMessage>Error {field}. Password must be: 6 letters, 1 number</ErrorMessage>;
     }
     return null;
   };
