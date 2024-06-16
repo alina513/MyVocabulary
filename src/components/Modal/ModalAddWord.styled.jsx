@@ -105,7 +105,28 @@ export const Close = styled.svg`
   height: 32px;
 `;
 
-export const Radio = styled.input``;
+export const Radio = styled.input.attrs({type: "radio"})`
+display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 22px;
+  color: ${p => p.theme.colors.black};
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid  ${p => p.theme.colors.white};
+  appearance: none;
+
+  &:checked {
+    background-color: ${p => p.theme.colors.white};;
+    color: ${p => p.theme.colors.black};
+    border: 2px solid  ${p => p.theme.colors.white};
+    background-clip: content-box;
+    padding: 3px;
+  }
+`;
 export const RadioContainer = styled.div`
   display: flex;
   gap: 16px;
