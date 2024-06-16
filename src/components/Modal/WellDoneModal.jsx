@@ -64,7 +64,7 @@ export const WellDoneModal = ({ isOpenModal, setIsOpenModal }) => {
               <Desc>Сorrect answers: </Desc>
               <ul>
                 {doneTasks.map(task => (
-                  <Item key={task._id}>{task.en}</Item>
+                  <Item key={task._id}>{task.ua}</Item>
                 ))}
               </ul>
             </WrapperRes>
@@ -72,7 +72,7 @@ export const WellDoneModal = ({ isOpenModal, setIsOpenModal }) => {
               <Desc>Mistakes:</Desc>
               <ul>
                 {notDoneTasks.map(task => (
-                  <Item key={task._id}>{task.en}</Item>
+                  <Item key={task._id}>{task.ua}</Item>
                 ))}
               </ul>
             </WrapperRes>

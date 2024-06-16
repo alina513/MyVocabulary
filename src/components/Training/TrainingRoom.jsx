@@ -70,7 +70,7 @@ export const TrainingRoom = () => {
           _id: currentTask._id,
           en: currentTask.en,
           ua: translation,
-          task: 'en',
+          task: 'ua',
         };
         setAnswers([...answers, newAnswer]);
         setTranslation('');
@@ -81,6 +81,18 @@ export const TrainingRoom = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    const currentTask = tasks[currentTaskIndex];
+
+    if (translation) {
+      const newAnswer = {
+        _id: currentTask._id,
+        en: currentTask.en,
+        ua: translation,
+        task: 'en',
+      };
+      setAnswers([...answers, newAnswer]);
+      setTranslation('');}
+
     dispatch(addAnswers({ data: answers, token }));
     setIsOpenModal(true);
     setTranslation('');
