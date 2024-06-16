@@ -6,7 +6,7 @@ export const Navigation = styled.nav`
   gap: 12px;
 `;
 export const Link = styled(NavLink)`
-  font-width: 500;
+  font-weight: 500;
   font-size: 14px;
   display: flex;
   align-items: center;

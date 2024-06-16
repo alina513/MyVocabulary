@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+box-sizing: border-box;
 display: block;
 padding: 18px;
   background-color: #fff;
+  margin-top: 8px;
 @media screen and (min-width: 768px) {
   width: 704px;
   height: 600px;
+  margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 15px;
 }
 @media screen and (min-width: 1440px) {
 margin-top: 16px;
@@ -22,14 +28,24 @@ margin-top: 16px;
 `;
 
 export const ContainerInputUkr = styled.div`
+box-sizing: border-box;
 width: 343px;
 height: 195px;
+// padding: 22px 22px;
+border-bottom: 1px solid #dbdbdb;
+border-radius: 8px 8px 0 0;
 @media screen and (min-width: 768px) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px 22px;
   width: 668px;
 height: 282px;
 background-color: #fcfcfc;
+margin: auto;
 }
 @media screen and (min-width: 1440px) {
+  border-bottom: none;
   border-right: 1px solid #dbdbdb;
   border-radius: 8px 0 0 0;
   padding: 22px 22px;
@@ -42,15 +58,19 @@ background-color: #fcfcfc;
   justify-content: space-between;}
 `;
 export const ContainerInputEng = styled.div`
+box-sizing: border-box;
 width: 343px;
 height: 195px;
+border-radius: 0 0 8px 8px;
 @media screen and (min-width: 768px) {
+  padding: 22px 22px;
   width: 668px;
 height: 282px;
 background-color: #fcfcfc;
+margin: auto;
 }
 @media screen and (min-width: 1440px) {
-  bborder: 0px solid #dbdbdb;
+  border: 0px solid #dbdbdb;
   border-radius: 0 8px 8px 0;
   padding: 22px 22px;
   width: 602px;
@@ -69,7 +89,7 @@ export const Input = styled.textarea`
   font-weight: 500;
   font-size: 20px;
   line-height: 150%;
-  width: 277px;
+  width: 257px;
   height: 30px;
   display: flex;
   border: none;
@@ -81,7 +101,7 @@ export const Input = styled.textarea`
     color:  #121417;
     opacity: 1;
     font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   
   }
 
@@ -89,7 +109,7 @@ export const Input = styled.textarea`
     color:  #121417;
     opacity: 1;
     font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'SF';
   }
 
@@ -97,7 +117,7 @@ export const Input = styled.textarea`
     color:  #121417;
     opacity: 1;
     font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'SF';
   }
 
@@ -105,7 +125,7 @@ export const Input = styled.textarea`
     color:  #121417;
     opacity: 1;
     font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'SF';
   }
 
@@ -113,14 +133,56 @@ export const Input = styled.textarea`
     color:  #121417;
     opacity: 1;
     font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'SF';
+  }
+  @media screen and (min-width: 768px) {
+    &::placeholder {
+      font-family: 'SF';
+      color:  #121417;
+      opacity: 1;
+      font-weight: 500;
+    font-size: 20px;
+    
+    }
+  
+    &::-webkit-input-placeholder {
+      color:  #121417;
+      opacity: 1;
+      font-weight: 700;
+    font-size: 20px;
+    font-family: 'SF';
+    }
+  
+    &::-moz-placeholder {
+      color:  #121417;
+      opacity: 1;
+      font-weight: 500;
+    font-size: 20px;
+    font-family: 'SF';
+    }
+  
+    &:-ms-input-placeholder {
+      color:  #121417;
+      opacity: 1;
+      font-weight: 500;
+    font-size: 20px;
+    font-family: 'SF';
+    }
+  
+    &:-moz-placeholder {
+      color:  #121417;
+      opacity: 1;
+      font-weight: 500;
+    font-size: 20px;
+    font-family: 'SF';
+    }
   }
 `;
 export const ContainerLang = styled.div`
 position: absolute;
 top: 130px;
-left: 250px;
+left: 200px;
 display: flex;
 gap: 8px;
 align-items: center;
@@ -134,17 +196,29 @@ align-items: center;
 `;
 export const Lang = styled.p`
   font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  @media screen and (min-width: 768px) {
+    font-weight: 500;
   font-size: 16px;
   line-height: 150%;
+  }
 `;
 export const Svg = styled.svg`
   width: 32px;
   height: 32px;
 `;
 export const Text = styled.p`
+margin-top: 22px;
+// margin-left: 22px;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 150%;
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
 `;
 export const Next = styled.button`
 margin-top: 106px;
@@ -181,11 +255,21 @@ export const SvgNext = styled.svg`
 export const ContainerButton = styled.div`
 margin-right: auto;
 margin-left: auto;
+margin-top: 116px;
 @media screen and (min-width: 768px) {
+  margin-top: 0px;
+  width: 416px;
+  display: flex;
+  gap: 10px;
+  margin-left: 32px;
+}
+  @media screen and (min-width: 1440px) {
+    margin-top: 0px;
   width: 602px;
   display: flex;
   gap: 10px;
-  margin-left: 25px;}
+  margin-left: 25px;
+  }
 `;
 export const Save = styled.button`
 display: block;
@@ -231,6 +315,7 @@ border: 1px solid rgba(252, 252, 252, 0.4);
 `;
 
 export const Cansel = styled.button`
+color:rgba(18, 20, 23, 0.5) ;
 margin-right: auto;
 margin-left: auto;
 border-radius: 30px;
@@ -242,7 +327,7 @@ border-radius: 30px;
   font-size: 18px;
   line-height: 156%;
   background-color: transparent;
-  color: ${p => p.theme.colors.green};
+  
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.white};
