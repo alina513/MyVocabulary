@@ -46,6 +46,7 @@ export const Container = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     margin-bottom: 28px;
+    align-items: center;
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 0px;
@@ -54,20 +55,25 @@ export const Container = styled.div`
 
 export const Radio = styled.input.attrs({type: "radio"})`
   display: flex;
+  align-items: center;
   cursor: pointer;
   width: 24px;
   height: 24px;
   font-size: 16px;
   line-height: 22px;
   color: ${p => p.theme.colors.black};
-  background-color: ${p => p.theme.colors.green};
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid rgba(18, 20, 23);
+  appearance: none;
 
   &:checked {
     background-color: green;
     color: ${p => p.theme.colors.black};
-    border: 2px solid green;
+    border: 2px solid  ${p => p.theme.colors.green};
     background-clip: content-box;
     padding: 3px;
+    background-color: ${p => p.theme.colors.green};
   }
 `;
 export const RadioContainer = styled.div`
