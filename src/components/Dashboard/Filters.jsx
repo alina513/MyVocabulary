@@ -26,6 +26,7 @@ export const Filters = () => {
   const categories = useSelector(selectCategories);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [keyword, setKeyword] = useState('');
+  const [selectedRadio, setSelectedRadio] = useState("");
 
   const debouncedSetFilter = useMemo(
     () => debounce(keyword => dispatch(setFilter(keyword)), 300),
@@ -41,6 +42,10 @@ export const Filters = () => {
   const handleCategoryChange = event => {
     setSelectedCategory(event.target.value);
     dispatch(setCategory(event.target.value));
+  };
+
+  const handleRadioChange = event => {
+    setSelectedRadio(event.target.value);
   };
 
   useEffect(() => {
@@ -67,9 +72,25 @@ export const Filters = () => {
       </Select>
       {selectedCategory === 'verb' && (
         <RadioContainer>
-          <Radio type="radio" name="verb" id="regular" value="false" />
+          {/* <Radio type="radio" name="verb" id="regular" value="false" /> */}
+          <Radio
+             type="radio"
+             id="regular"
+             name="verb"
+             value="regular"
+             checked={selectedRadio === 'regular'}
+             onChange={handleRadioChange}
+          />
           <Label htmlFor="regular">Regular</Label>
-          <Radio type="radio" name="verb" id="irregular" value="true" />
+          {/* <Radio type="radio" name="verb" id="irregular" value="true" /> */}
+          <Radio
+        type="radio"
+        id="irregular"
+        name="verb"
+        value="irregular"
+        checked={selectedRadio === 'irregular'}
+        onChange={handleRadioChange}
+          />
           <Label htmlFor="irregular">Irregular</Label>
         </RadioContainer>
       )}

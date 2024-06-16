@@ -65,16 +65,57 @@ export const WrapperLang = styled.div`
   width: 100%;
   position: relative;
 `;
-export const Input = styled.input`
+export const Input = styled.textarea`
   font-weight: 500;
   font-size: 20px;
   line-height: 150%;
-  width: 177px;
+  width: 277px;
   height: 30px;
   display: flex;
   border: none;
   background-color: transparent;
-  color: ${p => p.theme.colors.black};
+  color: black;
+
+  &::placeholder {
+    font-family: 'SF';
+    color:  #121417;
+    opacity: 1;
+    font-weight: 500;
+  font-size: 20px;
+  
+  }
+
+  &::-webkit-input-placeholder {
+    color:  #121417;
+    opacity: 1;
+    font-weight: 700;
+  font-size: 20px;
+  font-family: 'SF';
+  }
+
+  &::-moz-placeholder {
+    color:  #121417;
+    opacity: 1;
+    font-weight: 500;
+  font-size: 20px;
+  font-family: 'SF';
+  }
+
+  &:-ms-input-placeholder {
+    color:  #121417;
+    opacity: 1;
+    font-weight: 500;
+  font-size: 20px;
+  font-family: 'SF';
+  }
+
+  &:-moz-placeholder {
+    color:  #121417;
+    opacity: 1;
+    font-weight: 500;
+  font-size: 20px;
+  font-family: 'SF';
+  }
 `;
 export const ContainerLang = styled.div`
 position: absolute;
@@ -180,7 +221,7 @@ border: 1px solid rgba(252, 252, 252, 0.4);
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.green};
-    background-color: ${p => p.theme.colors.white};
+    background-color: transparent;
     border: 1px solid #85aa9f;
   }}
   @media screen and (min-width: 1440px)  {
@@ -200,7 +241,7 @@ border-radius: 30px;
   font-weight: 700;
   font-size: 18px;
   line-height: 156%;
-  background-color: ${p => p.theme.colors.white};
+  background-color: transparent;
   color: ${p => p.theme.colors.green};
   &:hover,
   &:focus {
@@ -216,7 +257,7 @@ border-radius: 30px;
   font-weight: 700;
   font-size: 18px;
   line-height: 156%;
-  background-color: ${p => p.theme.colors.white};
+  background-color: transparent;
   color: ${p => p.theme.colors.green};
   margin-right: 10px;
   margin-left: 0px;

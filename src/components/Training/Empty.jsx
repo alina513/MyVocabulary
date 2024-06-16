@@ -19,9 +19,6 @@ export const Empty = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpenModalLogin, setIsOpenModalLogin] = useState(false);
-  // const handleAddWordClick = () => {
-  //   navigate('/dictionary');
-  // };
   const handleAddWordClick = () => {
     navigate('/dictionary', { state: { openModal: true } });
   };
@@ -49,7 +46,7 @@ export const Empty = () => {
       <Img
         srcSet={`${img1} 1x, ${img2} 2x`}
         src={img1}
-        alt="blood report"
+        alt="report"
         width="265"
         height="283"
       />

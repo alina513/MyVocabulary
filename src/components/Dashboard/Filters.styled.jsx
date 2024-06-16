@@ -52,8 +52,23 @@ export const Container = styled.div`
   }
 `;
 
-export const Radio = styled.input`
+export const Radio = styled.input.attrs({type: "radio"})`
   display: flex;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 22px;
+  color: ${p => p.theme.colors.black};
+  background-color: ${p => p.theme.colors.green};
+
+  &:checked {
+    background-color: green;
+    color: ${p => p.theme.colors.black};
+    border: 2px solid green;
+    background-clip: content-box;
+    padding: 3px;
+  }
 `;
 export const RadioContainer = styled.div`
   box-sizing: border-box;
@@ -65,6 +80,7 @@ export const RadioContainer = styled.div`
   margin-bottom: 22px;
   margin-top: 8px;
   margin-left: 8px;
+  align-items: center;
 `;
 export const Label = styled.label`
   font-weight: 400;
@@ -72,3 +88,4 @@ export const Label = styled.label`
   text-align: center;
   color: ${p => p.theme.colors.black};
 `;
+

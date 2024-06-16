@@ -8,8 +8,6 @@ export const Navigation = styled.nav`
 export const Link = styled(NavLink)`
   font-width: 500;
   font-size: 14px;
-  // width: 127px;
-  // height: 43px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,6 +22,10 @@ export const Link = styled(NavLink)`
 
   &:hover,
   &:focus {
-    color: blue;
+    color: ${p => p.theme.colors.green};
+  }
+  &.active:hover,
+  &.active:focus {
+    color: ${p => p.theme.colors.black};
   }
 `;

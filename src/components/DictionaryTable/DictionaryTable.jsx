@@ -193,9 +193,11 @@ import {
   SpanAdd,
   ButtonAdd,
   SpanAddWord,
+  Procent,
+  ConProcent
 } from './DictionaryTable.styled';
 import sprite from '../../assets/sprite.svg';
-import CircularProgress from '../Progress';
+import {CircularProgress} from '../Progress';
 
 import Pagination from '../Pagination/Pagination';
 
@@ -325,7 +327,15 @@ export function DictionaryTable({ exam }) {
       }),
       columnHelper.accessor('progress', {
         header: () => <span>Progress</span>,
-        cell: info => <CircularProgress progress={info.getValue()} />,
+        // cell: info => <CircularProgress progress={info.getValue()} />,
+        cell: info =>  <ConProcent><Procent>{info.getValue()}%</Procent><CircularProgress
+        size={26}
+        strokeWidth={4}
+        progress={info.getValue()}
+        color1="#2BD627"
+        color2="#D4F8D3"
+        color3="#D4F8D3"
+      /></ConProcent>
       }),
       columnHelper.accessor('status', {
         header: () => <Hidden>Status</Hidden>,

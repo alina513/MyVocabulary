@@ -8,13 +8,13 @@ export const Container = styled.div`
     margin-left: 32px;
   }
   @media screen and (min-width: 1440px) {
-    margin-top: 0px;
+    margin-top: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 1240px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 80px;
+    margin-left: 80px;
   }
 `;
 export const ContainerStat = styled.div`

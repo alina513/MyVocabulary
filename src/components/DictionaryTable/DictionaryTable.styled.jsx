@@ -176,3 +176,15 @@ export const ButtonAdd = styled.button`
     color: ${p => p.theme.colors.green};
   }
 `;
+
+export const ConProcent = styled.div`
+display: flex;
+gap: 7px;
+`
+export const Procent = styled.p`
+display: none;
+@media screen and (min-width: 1440px) {
+  display: flex;
+font-weight: 500;
+font-size: 22px;}
+`

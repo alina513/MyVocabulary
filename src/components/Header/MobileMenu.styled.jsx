@@ -111,6 +111,11 @@ justify-content: center;
 
   &:hover,
   &:focus {
-    color: blue;
+    color: ${p => p.theme.colors.black};
   }
+  &.active&:hover,
+  &.active&:focus  {
+    color: ${p => p.theme.colors.green};
+  }
+
 `;

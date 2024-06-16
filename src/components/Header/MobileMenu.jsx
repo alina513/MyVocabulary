@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Slide from '@mui/material/Slide';
 import sprite from '../../assets/sprite.svg';
@@ -19,19 +19,30 @@ import {
   Link,
   Container
 } from './MobileMenu.styled';
+import { useEffect } from 'react';
 
 const modalRoot = document.querySelector('#menu-root');
 
 export const MobileMenu = ({ closeMenu, isOpen }) => {
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
-  // let location = useLocation();
+  let location = useLocation();
+
+  const prevLocationRef = React.useRef(location);
+
+  useEffect(() => {
+    if (isOpen && location !== prevLocationRef.current) {
+      closeMenu();
+    }
+    prevLocationRef.current = location;
+  }, [location, isOpen, closeMenu]);
+
 
   // useEffect(() => {
   //   if (isOpen) {
   //     closeMenu();
   //   }
-  // }, [ location]);
+  // }, [ location, isOpen, closeMenu]);
 
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
