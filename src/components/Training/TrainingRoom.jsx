@@ -79,6 +79,26 @@ export const TrainingRoom = () => {
     }
   };
 
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   const currentTask = tasks[currentTaskIndex];
+
+  //   if (translation) {
+  //     const newAnswer = {
+  //       _id: currentTask._id,
+  //       en: currentTask.en,
+  //       ua: translation,
+  //       task: 'ua',
+  //     };
+  //     setAnswers([...answers, newAnswer]);
+  //     setTranslation('');}
+  //     setCurrentTaskIndex(prevIndex => (prevIndex + 1) % tasks.length);
+
+  //   dispatch(addAnswers({ data: answers, token }));
+  //   setIsOpenModal(true);
+  //   setTranslation('');
+  // };
+
   const handleSubmit = event => {
     event.preventDefault();
     const currentTask = tasks[currentTaskIndex];
@@ -88,53 +108,16 @@ export const TrainingRoom = () => {
         _id: currentTask._id,
         en: currentTask.en,
         ua: translation,
-        task: 'en',
+        task: 'ua',
       };
-      setAnswers([...answers, newAnswer]);
-      setTranslation('');}
-
-    dispatch(addAnswers({ data: answers, token }));
-    setIsOpenModal(true);
-    setTranslation('');
+      const updatedAnswers = [...answers, newAnswer];
+      setAnswers(updatedAnswers);
+      setTranslation('');
+      setCurrentTaskIndex(prevIndex => (prevIndex + 1) % tasks.length);
+      dispatch(addAnswers({ data: updatedAnswers, token }));
+      setIsOpenModal(true);
+    }
   };
-
-  // const CircularProgress = ({ progress }) => {
-  //   const containerStyle = {
-  //     display: 'flex',
-  //     alignItems: 'center',
-  //   };
-
-  //   const circleContainerStyle = {
-  //     position: 'relative',
-  //     width: 50,
-  //     height: 50,
-  //     marginLeft: '16px',
-  //   };
-
-  //   const progressTextStyle = {
-  //     fontSize: '16px',
-  //     fontWeight: '500',
-  //     position: 'absolute',
-  //     top: '50%',
-  //     left: '50%',
-  //     transform: 'translate(-50%, -50%)',
-  //   };
-
-  //   return (
-  //     <div style={containerStyle}>
-  //       <div style={circleContainerStyle}>
-  //         <Circle
-  //           percent={progress}
-  //           size={58}
-  //           strokeWidth={5}
-  //           strokeColor="#2BD627"
-  //           trailColor="grey"
-  //         />
-  //         <div style={progressTextStyle}>{`${progress}`}</div>
-  //       </div>
-  //     </div>
-  //   );
-  // };
 
   return (
     <>
