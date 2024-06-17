@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import sprite from '../../assets/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectResults } from '../../redux/words/selectors';
+import { useNavigate } from 'react-router-dom';
 import {
   Title,
   Wrapper,
@@ -38,6 +39,7 @@ export const WellDoneModal = ({ isOpenModal, setIsOpenModal }) => {
   };
 
   const results = useSelector(selectResults);
+  const navigate = useNavigate();
 
   const doneTasks = results.filter(task => task.isDone);
   const notDoneTasks = results.filter(task => !task.isDone);
@@ -53,7 +55,9 @@ export const WellDoneModal = ({ isOpenModal, setIsOpenModal }) => {
         contentLabel="More info modal"
       >
         <Container>
-          <ButtonClose onClick={() => setIsOpenModal(false)}>
+          <ButtonClose onClick={() => {setIsOpenModal(false);
+            navigate('/dictionary')
+          } }>
             <Close>
               <use xlinkHref={sprite + '#icon-close'}></use>
             </Close>
