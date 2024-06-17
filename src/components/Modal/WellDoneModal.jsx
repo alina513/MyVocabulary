@@ -50,6 +50,7 @@ export const WellDoneModal = ({ isOpenModal, setIsOpenModal }) => {
         isOpen={isOpenModal}
         onRequestClose={() => {
           setIsOpenModal(false);
+          navigate('/dictionary')
         }}
         style={customStyles}
         contentLabel="More info modal"
