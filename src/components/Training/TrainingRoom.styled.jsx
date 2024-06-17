@@ -28,6 +28,7 @@ margin-top: 16px;
 `;
 
 export const ContainerInputUkr = styled.div`
+position: relative;
 box-sizing: border-box;
 width: 343px;
 height: 195px;
@@ -43,6 +44,7 @@ border-radius: 8px 8px 0 0;
 height: 282px;
 background-color: #fcfcfc;
 margin: auto;
+padding-bottom: 22px;
 }
 @media screen and (min-width: 1440px) {
   border-bottom: none;
@@ -86,11 +88,14 @@ export const WrapperLang = styled.div`
   position: relative;
 `;
 export const Input = styled.textarea`
+resize: none;
   font-weight: 500;
   font-size: 20px;
   line-height: 150%;
-  width: 257px;
-  height: 30px;
+  width: 100%;
+  height: 100%;
+  // width: 257px;
+  // height: 30px;
   display: flex;
   border: none;
   background-color: transparent;
@@ -181,18 +186,22 @@ export const Input = styled.textarea`
 `;
 export const ContainerLang = styled.div`
 position: absolute;
-top: 130px;
-left: 200px;
+top: 155px;
+left: 240px;
 display: flex;
 gap: 8px;
 align-items: center;
 @media screen and (min-width: 768px){
-  position: relative;
   top: 0px;
-  left: 0px;
+  left: 530px;
   display: flex;
   gap: 8px;
   align-items: center;}
+  @media screen and (min-width: 1440px) {
+    position: absolute;
+    top: 0px;
+  left: 470px;
+  }
 `;
 export const Lang = styled.p`
   font-weight: 500;
@@ -233,7 +242,16 @@ border: none;
   &:focus {
     color: ${p => p.theme.colors.green};
   }
+  @media screen and (min-width: 768px) {
+    margin-top: 0px;
+    position: absolute;
+    top: 250px;
+    left: 15px; 
+  }
 @media screen and (min-width: 1440px) {
+  position: relative;
+  top: 0px;
+  left: 0px;
   margin-top: 0px;
 border: none;
   background-color: transparent;
