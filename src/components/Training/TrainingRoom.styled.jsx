@@ -193,14 +193,14 @@ gap: 8px;
 align-items: center;
 @media screen and (min-width: 768px){
   top: 0px;
-  left: 530px;
+  left: 520px;
   display: flex;
   gap: 8px;
   align-items: center;}
   @media screen and (min-width: 1440px) {
     position: absolute;
     top: 0px;
-  left: 470px;
+  left: 450px;
   }
 `;
 export const Lang = styled.p`
