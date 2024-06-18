@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
 import { selectCategories } from '../../redux/words/selectors';
 import { fetchCategories } from '../../redux/words/operation';
-import { setFilter, setCategory } from '../../redux/words/slice';
+import { setFilter, setCategory, setRadio } from '../../redux/words/slice';
 import { useEffect, useState, useMemo } from 'react';
 import debounce from 'lodash/debounce';
 
@@ -41,11 +41,14 @@ export const Filters = () => {
 
   const handleCategoryChange = event => {
     setSelectedCategory(event.target.value);
+    setSelectedRadio("");
     dispatch(setCategory(event.target.value));
+    dispatch(setRadio(""));
   };
 
   const handleRadioChange = event => {
     setSelectedRadio(event.target.value);
+    dispatch(setRadio(event.target.value));
   };
 
   useEffect(() => {
@@ -77,8 +80,8 @@ export const Filters = () => {
              type="radio"
              id="regular"
              name="verb"
-             value="regular"
-             checked={selectedRadio === 'regular'}
+             value="false"
+             checked={selectedRadio === 'false'}
              onChange={handleRadioChange}
           />
           <Label htmlFor="regular">Regular</Label>
@@ -87,8 +90,8 @@ export const Filters = () => {
         type="radio"
         id="irregular"
         name="verb"
-        value="irregular"
-        checked={selectedRadio === 'irregular'}
+        value="true"
+        checked={selectedRadio === 'true'}
         onChange={handleRadioChange}
           />
           <Label htmlFor="irregular">Irregular</Label>

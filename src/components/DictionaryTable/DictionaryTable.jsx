@@ -217,6 +217,7 @@ import {
   selectFiltersCategory,
   selectWordsRecommend,
   selectIsLoading,
+  selectFiltersIsIrregular
 } from '../../redux/words/selectors';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../redux/auth/selectors';
@@ -241,6 +242,7 @@ export function DictionaryTable({ exam }) {
   const keyword = useSelector(selectFiltersKeyWord);
   const category = useSelector(selectFiltersCategory);
   const isLoading = useSelector(selectIsLoading);
+  const isIrregular = useSelector(selectFiltersIsIrregular)
   const dispatch = useDispatch();
 
   const handleAddRecommend = id => {
@@ -261,13 +263,13 @@ export function DictionaryTable({ exam }) {
 
   useEffect(() => {
     if (exam) {
-      dispatch(fetchWords({ token, page: currentPage, keyword, category }));
+      dispatch(fetchWords({ token, page: currentPage, keyword, category, isIrregular }));
     } else {
       dispatch(
         fetchWordsRecommend({ token, page: currentPage, keyword, category })
       );
     }
-  }, [dispatch, token, currentPage, keyword, category, exam]);
+  }, [dispatch, token, currentPage, keyword, category, exam, isIrregular]);
 
   const columnHelper = createColumnHelper();
 

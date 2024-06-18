@@ -24,6 +24,7 @@ const initialState = {
   filters: {
     keyword: null,
     category: null,
+    isIrregular: null,
   },
 };
 
@@ -38,6 +39,9 @@ const wordsSlice = createSlice({
     setCategory(state, action) {
       state.filters.category = action.payload;
     },
+    setRadio(state, action) {
+      state.filters.isIrregular = action.payload;
+    }
   },
 
   extraReducers: builder => {
@@ -113,4 +117,4 @@ const wordsSlice = createSlice({
 });
 
 export const wordsReducer = wordsSlice.reducer;
-export const { setFilter, setCategory } = wordsSlice.actions;
+export const { setFilter, setCategory, setRadio } = wordsSlice.actions;
