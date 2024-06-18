@@ -266,7 +266,7 @@ export function DictionaryTable({ exam }) {
       dispatch(fetchWords({ token, page: currentPage, keyword, category, isIrregular }));
     } else {
       dispatch(
-        fetchWordsRecommend({ token, page: currentPage, keyword, category })
+        fetchWordsRecommend({ token, page: currentPage, keyword, category, isIrregular })
       );
     }
   }, [dispatch, token, currentPage, keyword, category, exam, isIrregular]);

@@ -109,11 +109,12 @@ export const fetchWords = createAsyncThunk(
 
 export const fetchWordsRecommend = createAsyncThunk(
   'words/fetchAllRecommend',
-  async ({ token, page, limit = 7, keyword, category }, thunkAPI) => {
+  async ({ token, page, limit = 7, keyword, category, isIrregular }, thunkAPI) => {
     try {
       const params = { page, limit };
       if (keyword) params.keyword = keyword;
       if (category) params.category = category;
+      if (isIrregular!==null) params.isIrregular = isIrregular;
 
       const response = await axios.get('/words/all', {
         params,
