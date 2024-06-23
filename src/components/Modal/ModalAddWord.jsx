@@ -59,13 +59,17 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      padding: '48px 64px 48px 64px',
-      paddingLeft: '64px',
-      maxWidth: '628px',
-      width: "80%",
-      height: '622px',
+      // padding: '48px 16px 48px 16px',
+      // maxWidth: '628px',
+      // width: "343px",
+      // height: '622px',
       borderRadius: '30px',
       backgroundColor: '#85AA9F',
+      '@media (maxWidth: 1440px)': {
+      width: "80%",
+      height: '622px',
+      padding: '48px 64px 48px 64px',
+      }
     },
   };
 

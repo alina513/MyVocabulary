@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { Edit, Delet, Wrapper, Svg } from './EditwordModal.styled';
+import { Edit, Delet, Wrapper, Svg, Content } from './EditwordModal.styled';
 
 import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
@@ -16,12 +16,13 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData }) => {
   const customStyles = {
     overlay: {
       backgroundColor: 'transparent',
-      width: '1600px',
+      width: '100wv',
+      height: '100hv'
     },
     content: {
       boxSizing: 'border-box',
-      top: '45%',
-      left: '85%',
+      top: '75%',
+      left: '70%',
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
@@ -51,7 +52,7 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData }) => {
   };
 
   return (
-    <>
+    <Content>
       <Modal
         isOpen={isOpenModal}
         onRequestClose={() => {
@@ -80,6 +81,6 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData }) => {
         setIsOpenModal={setIsOpenEditModal}
         wordData={wordData}
       />
-    </>
+    </Content>
   );
 };

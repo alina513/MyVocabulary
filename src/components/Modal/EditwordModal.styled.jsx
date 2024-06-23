@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.form`
+box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  
+
+  @media screen and (min-width: 768px) {}
+  @media screen and (min-width: 1440px) {}
 `;
 
 export const Edit = styled.button`
@@ -42,3 +48,9 @@ export const Svg = styled.svg`
   height: 16px;
   margin-right: 4px;
 `;
+
+export const Content = styled.div`
+// position: relative;
+// width: 100%;
+// height: 100%;
+`

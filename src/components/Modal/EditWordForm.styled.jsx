@@ -3,6 +3,20 @@ import styled from 'styled-components';
 export const Wrapper = styled.form`
   color: ${p => p.theme.colors.white};
   position: relative;
+  padding: 48px 64px;
+  width: 342px;
+  height: 359px;
+  background-color: #85AA9F;
+  border-radius: 30px;
+  @media screen and (min-width: 768px) {
+    width: 627px;
+    height: 345px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 48px 64px;
+      width: 627px;
+      height: 345px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -55,9 +69,9 @@ export const Lang = styled.p`
 `;
 export const AddButton = styled.button`
   border-radius: 30px;
-  padding: 14px 104px;
-  width: 245px;
-  height: 56px;
+  padding: 12px 60px;
+  width: 158px;
+  height: 48px;
   border: none;
   font-weight: 700;
   font-size: 18px;
@@ -69,13 +83,18 @@ export const AddButton = styled.button`
   &:focus {
     color: ${p => p.theme.colors.green};
   }
+  @media screen and (min-width: 768px) {
+    width: 245px;
+    height: 56px;
+    padding: 14px 104px;
+  }
 `;
 export const CancelButton = styled.button`
   border: 1px solid rgba(252, 252, 252, 0.4);
   border-radius: 30px;
-  padding: 14px 92px;
-  width: 245px;
-  height: 56px;
+  padding: 12px 45px;
+  width: 158px;
+  height: 48px;
   font-weight: 700;
   font-size: 18px;
   line-height: 156%;
@@ -85,6 +104,11 @@ export const CancelButton = styled.button`
   &:focus {
     color: ${p => p.theme.colors.black};
     background-color: ${p => p.theme.colors.white};
+  }
+  @media screen and (min-width: 768px) {
+    width: 245px;
+    height: 56px;
+    padding: 14px 92px;
   }
 `;
 export const ButtonClose = styled.button`
@@ -126,12 +150,19 @@ export const ContainerLang = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-left: 32px;
+  margin-left: 0px;
+  @media screen and (min-width: 768px) {
+    margin-left: 32px;
+  }
 `;
 
 export const InputContainer = styled.div`
-  display: flex;
+  display: block;
   margin-top: 16px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+
+  }
 `;
 export const ButtonContainer = styled.div`
   display: flex;

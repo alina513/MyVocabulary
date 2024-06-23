@@ -35,20 +35,37 @@ export const ButtonClose = styled.button`
   display: block;
   border: none;
   position: absolute;
-  right: -28px;
-  top: -28px;
+  // right: -28px;
+  // top: -28px;
+  right: 0px;
+  top: 0px;
 `;
 export const Close = styled.svg`
   width: 32px;
   height: 32px;
 `;
 export const Container = styled.div`
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
+  width: 342px;
+  height: 458px;
+  padding: 48px 16px;
   position: relative;
   background-color: ${p => p.theme.colors.green};
   background-image: url(${openBook});
   background-size: content;
   background-repeat: no-repeat;
-  background-position: 230px 250px;
+  // background-position: 230px 250px;
+  background-position: 200px 350px;
+  @media screen and (min-width: 768px) {
+    width: 527px;
+  height: 519px;
+  padding: 48px 64px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 527px;
+  height: 519px;
+  padding: 48px 64px;
+  background-position: 390px 390px;
+  }
 `;

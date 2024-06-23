@@ -6,22 +6,50 @@ import styled from 'styled-components';
 export const Wrapper = styled.form`
   color: ${p => p.theme.colors.white};
   position: relative;
+  width: 343px;
+  height: 642px;
+  padding: 48px 16px;
+  @media screen and (min-width: 768px){
+    width: 627px;
+    height: 621px;
+    padding: 48px 64px;
+  }
+  @media screen and (min-width: 1440px){
+    width: 648px;
+  height: 642px;
+  padding: 48px 64px;
+  }
 `;
 
 export const Title = styled.h2`
   font-weight: 600;
+  font-size: 24px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px){
+    font-weight: 600;
   font-size: 40px;
   line-height: 120%;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
+
+  }
 `;
 
 export const Text = styled.p`
-  ont-weight: 400;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgba(252, 252, 252, 0.8);
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px){
+  font-weight: 400;
   font-size: 20px;
   line-height: 150%;
   color: rgba(252, 252, 252, 0.8);
   margin-bottom: 32px;
+  }
 `;
 export const Select = styled.select`
   box-sizing: border-box;
@@ -29,16 +57,43 @@ export const Select = styled.select`
   border: 1px solid rgba(252, 252, 252, 0.3);
   border-radius: 15px;
   padding: 12px 24px;
-  width: 204px;
+  width: 311px;
   height: 48px;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   background-color: ${p => p.theme.colors.green};
   color: ${p => p.theme.colors.white};
+  @media screen and (min-width: 768px){
+    box-sizing: border-box;
+    display: flex;
+    border: 1px solid rgba(252, 252, 252, 0.3);
+    border-radius: 15px;
+    padding: 12px 24px;
+    width: 204px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    background-color: ${p => p.theme.colors.green};
+    color: ${p => p.theme.colors.white};
+  }
 `;
 export const Input = styled.input`
   display: flex;
+  box-sizing: border-box;
+  border: 1px solid rgba(252, 252, 252, 0.3);
+  border-radius: 15px;
+  padding: 16px 246px 16px 18px;
+  width: 311px;
+  height: 56px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  background-color: ${p => p.theme.colors.green};
+  color: ${p => p.theme.colors.white};
+  @media screen and (min-width: 768px) {
+    display: flex;
   box-sizing: border-box;
   border: 1px solid rgba(252, 252, 252, 0.3);
   border-radius: 15px;
@@ -50,6 +105,7 @@ export const Input = styled.input`
   line-height: 150%;
   background-color: ${p => p.theme.colors.green};
   color: ${p => p.theme.colors.white};
+  }
 `;
 export const Lang = styled.p`
   font-weight: 500;
@@ -58,6 +114,22 @@ export const Lang = styled.p`
 `;
 export const AddButton = styled.button`
   border-radius: 30px;
+  padding: 12px 63px;
+  width: 159px;
+  height: 48px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 156%;
+  background-color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.colors.black};
+  margin-riight: 10px;
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.green};
+  }
+  @media screen and (min-width: 768px) {
+    border-radius: 30px;
   padding: 14px 104px;
   width: 245px;
   height: 56px;
@@ -68,13 +140,26 @@ export const AddButton = styled.button`
   background-color: ${p => p.theme.colors.white};
   color: ${p => p.theme.colors.black};
   margin-riight: 10px;
-  &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.green};
   }
 `;
 export const CancelButton = styled.button`
   border: 1px solid rgba(252, 252, 252, 0.4);
+  border-radius: 30px;
+  padding: 12px 45px;
+  width: 145px;
+  height: 48px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 156%;
+  background-color: ${p => p.theme.colors.green};
+  color: ${p => p.theme.colors.white};
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.black};
+    background-color: ${p => p.theme.colors.white};
+  }
+  @media screen and (min-width: 768px) {
+    border: 1px solid rgba(252, 252, 252, 0.4);
   border-radius: 30px;
   padding: 14px 92px;
   width: 245px;
@@ -89,6 +174,7 @@ export const CancelButton = styled.button`
     color: ${p => p.theme.colors.black};
     background-color: ${p => p.theme.colors.white};
   }
+  }
 `;
 export const ButtonClose = styled.button`
   margin-left: auto;
@@ -96,8 +182,26 @@ export const ButtonClose = styled.button`
   display: block;
   border: none;
   position: absolute;
-  right: -28px;
-  top: -28px;
+  right: 0px;
+  top: 0px;
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+  background-color: #85aa9f;
+  display: block;
+  border: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: auto;
+  background-color: #85aa9f;
+  display: block;
+  border: none;
+  position: absolute;
+  // right: -28px;
+  // top: -28px;
+  }
 `;
 
 export const Close = styled.svg`
@@ -146,16 +250,33 @@ export const SvgLang = styled.svg`
 `;
 
 export const ContainerLang = styled.div`
+position: absolute;
+top: -40px;
+right: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   margin-left: 32px;
+  @media screen and (min-width: 768px) {
+    position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-left: 32px;}
 `;
 
 export const InputContainer = styled.div`
+position: relative;
   display: flex;
+  margin-top: 94px;
+  @media screen and (min-width: 768px) {
+    position: static;
+    display: flex;
   margin-top: 16px;
+
+  }
 `;
 export const ButtonContainer = styled.div`
   display: flex;
