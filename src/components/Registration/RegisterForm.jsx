@@ -75,7 +75,11 @@ export const RegisterForm = () => {
     if (value && !error) {
       return <SuccessMessage>Success {field}</SuccessMessage>;
     } else if (error) {
-      return <ErrorMessage>Error {field}. Password must be: 6 letters, 1 number</ErrorMessage>;
+      return (
+        <ErrorMessage>
+          Error {field}. Password must be: 6 letters, 1 number
+        </ErrorMessage>
+      );
     }
     return null;
   };

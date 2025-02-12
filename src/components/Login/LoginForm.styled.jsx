@@ -2,21 +2,26 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Form = styled.form`
-  box-sizing: border-box;
-  width: 375px;
   height: 479px;
   border-radius: 30px;
   background-color: rgba(133, 170, 159, 0.1);
   padding: 32px 18px;
-  margin-top: 333px;
+  margin-top: 233px;
   margin-right: auto;
   margin-left: auto;
+
+  @media screen and (min-width: 350px) {
+    width: 320px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 628px;
     height: 592px;
+    margin-top: 360px;
     padding: 48px 64px 48px 64px;
-    margin-top: 114px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 64px;
   }
 `;
 
@@ -55,7 +60,7 @@ export const Text = styled.p`
 `;
 
 export const Input = styled.input`
-  width: 343px;
+  width: 288px;
   height: 56px;
   margin-bottom: 14px;
   padding-left: 18px;
@@ -92,7 +97,10 @@ export const Input = styled.input`
 `;
 export const NavLink = styled(Link)`
   display: block;
-  margin-left: 140px;
+  width: 288px;
+  margin-right: auto;
+  text-align: center;
+  margin-left: auto;
   font-weight: 700;
   font-size: 16px;
   line-height: 150%;
@@ -105,12 +113,12 @@ export const NavLink = styled(Link)`
   }
 
   @media screen and (min-width: 768px) {
-    margin-left: 229px;
+    width: 500px;
   }
 `;
 
 export const Button = styled.button`
-  width: 343px;
+  width: 288px;
   height: 56px;
   display: flex;
   background-color: ${p => p.theme.colors.green};

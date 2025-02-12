@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Form = styled.form`
-  box-sizing: border-box;
-  width: 375px;
   height: 549px;
   border-radius: 30px;
   background-color: rgba(133, 170, 159, 0.1);
@@ -12,14 +10,17 @@ export const Form = styled.form`
   margin-right: auto;
   margin-left: auto;
 
+  @media screen and (min-width: 350px) {
+    width: 320px;
+  }
+
   @media screen and (min-width: 768px) {
-    box-sizing: border-box;
     width: 628px;
     height: 592px;
     border-radius: 30px;
     background-color: rgba(133, 170, 159, 0.1);
     padding: 48px 64px;
-    margin-top: 140px;
+    margin-top: 360px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -59,13 +60,12 @@ export const Text = styled.p`
 `;
 
 export const Input = styled.input`
-  box-sizing: border-box;
   display: flex;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   color: ${p => p.theme.colors.black};
-  width: 343px;
+  width: 288px;
   height: 56px;
   border-radius: 15px;
 
@@ -117,7 +117,10 @@ export const Input = styled.input`
 `;
 export const NavLink = styled(Link)`
   display: block;
-  margin-left: 146px;
+  width: 288px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
   font-weight: 700;
   font-size: 16px;
   line-height: 150%;
@@ -130,12 +133,12 @@ export const NavLink = styled(Link)`
   }
 
   @media screen and (min-width: 768px) {
-    margin-left: 229px;
+    width: 500px;
   }
 `;
 
 export const Button = styled.button`
-  width: 343px;
+  width: 288px;
   height: 56px;
   display: flex;
   background-color: ${p => p.theme.colors.green};

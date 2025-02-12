@@ -30,7 +30,6 @@ export const MainContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  box-sizing: border-box;
   background-color: ${p => p.theme.colors.white};
   width: 100%;
   height: 100%;
@@ -44,16 +43,20 @@ export const Wrapper = styled.div`
   background-position: 70px 70px;
   position: relative;
 
+  @media screen and (min-width: 350px) {
+    width: 350px;
+  }
+
   @media screen and (min-width: 768px) {
-    background-image: none;
-    box-sizing: border-box;
-    // display: flex;
+    width: 768px;
+    background-size: 60%;
+    background-position: center 70px;
     background-color: ${p => p.theme.colors.white};
-    // padding: 24px 134px 104px 100px;
   }
 
   @media screen and (min-width: 1440px) {
-    box-sizing: border-box;
+    width: 1440px;
+    height: 100%;
     display: flex;
     background-color: ${p => p.theme.colors.white};
     padding: 24px 100px 100px 100px;
@@ -102,9 +105,9 @@ export const List = styled.ul`
   display: none;
   @media screen and (min-width: 768px) {
     display: flex;
+    margin-top: 28px;
+    justify-content: center;
     gap: 10px;
-    margin-top: 172px;
-    margin-left: 160px;
   }
 
   @media screen and (min-width: 1440px) {
