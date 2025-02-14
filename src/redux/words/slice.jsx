@@ -96,7 +96,6 @@ const wordsSlice = createSlice({
         state.categories = action.payload;
       })
       .addCase(deleteWordById.fulfilled, (state, action) => {
-        // state.words.filter(word => word._id !== action.payload.id);
         state.words = state.words.filter(
           word => word._id !== action.payload.id
         );
