@@ -1,9 +1,5 @@
 import Modal from 'react-modal';
-
 import sprite from '../../assets/sprite.svg';
-import { useSelector } from 'react-redux';
-import { selectToken } from '../../redux/auth/selectors';
-
 import { useDispatch } from 'react-redux';
 import { editWord } from '../../redux/words/operation';
 import { useState } from 'react';
@@ -65,10 +61,7 @@ export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  // const handleEditClick = () => {
-  //   setIsOpenModal(true);
-  // };
-  const token = useSelector(selectToken);
+  
   const dispatch = useDispatch();
 
   const handleSubmit = async event => {
@@ -81,7 +74,7 @@ export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
       const id = wordData._id;
       await schema.validate({ eng: en, ukr: ua });
 
-      dispatch(editWord({ id, en, ua, category, isIrregular, token }));
+      dispatch(editWord({ id, en, ua, category, isIrregular }));
       event.target.reset();
       setIsOpenModal(false);
       setErrorMessage('');

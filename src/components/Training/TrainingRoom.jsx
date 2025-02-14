@@ -20,16 +20,13 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { selectTasks } from '../../redux/words/selectors';
-import { selectToken } from '../../redux/auth/selectors';
 import { fetchTasks, addAnswers } from '../../redux/words/operation';
 import sprite from '../../assets/sprite.svg';
-// import { Circle } from 'rc-progress';
 import { CircularProgress } from '../../components/Progress';
 import { WellDoneModal } from '../../components/Modal/WellDoneModal';
 import { Empty } from './Empty';
 
 export const TrainingRoom = () => {
-  const token = useSelector(selectToken);
   const tasks = useSelector(selectTasks);
   const [currentTaskIndex, setCurrentTaskIndex] = useState(tasks.length/2);
   const [translation, setTranslation] = useState('');
@@ -41,26 +38,8 @@ export const TrainingRoom = () => {
       : 0;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchTasks({ token }));
-  }, [dispatch, token]);
-
-  //   const handleNextTask = () => {
-  //     console.log(tasks)
-
-  //     if (tasks.length > 0 && translation) {
-  //         const currentTask = tasks[currentTaskIndex];
-  //       const newAnswer = {
-  //         _id: currentTask._id,
-  //         en: translation,
-  //         ua: currentTask.ua,
-  //         task: 'en',
-  //       };
-  //       setAnswers([...answers, newAnswer]);
-  //       console.log(answers);
-  //       setTranslation('');
-  //       setCurrentTaskIndex(prevIndex => (prevIndex + 1) % tasks.length);
-  //     }
-  //   };
+    dispatch(fetchTasks());
+  }, [dispatch]);
 
   const handleNextTask = () => {
     if (tasks.length > 0) {
@@ -79,25 +58,7 @@ export const TrainingRoom = () => {
     }
   };
 
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   const currentTask = tasks[currentTaskIndex];
-
-  //   if (translation) {
-  //     const newAnswer = {
-  //       _id: currentTask._id,
-  //       en: currentTask.en,
-  //       ua: translation,
-  //       task: 'ua',
-  //     };
-  //     setAnswers([...answers, newAnswer]);
-  //     setTranslation('');}
-  //     setCurrentTaskIndex(prevIndex => (prevIndex + 1) % tasks.length);
-
-  //   dispatch(addAnswers({ data: answers, token }));
-  //   setIsOpenModal(true);
-  //   setTranslation('');
-  // };
+  
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -114,7 +75,7 @@ export const TrainingRoom = () => {
       setAnswers(updatedAnswers);
       setTranslation('');
       setCurrentTaskIndex(prevIndex => (prevIndex + 1) % tasks.length);
-      dispatch(addAnswers({ data: updatedAnswers, token }));
+      dispatch(addAnswers({ data: updatedAnswers}));
       setIsOpenModal(true);
     }
   };

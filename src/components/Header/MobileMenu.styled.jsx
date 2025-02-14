@@ -1,30 +1,21 @@
 import styled from 'styled-components';
-import bgmob from "../../assets/background/bgmobile.png";
+import bgmob from '../../assets/background/bgmobile.png';
 import { NavLink } from 'react-router-dom';
 
 export const MainDiv = styled.div`
-
   position: absolute;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 40%;
-  background-color: #85AA9F;
+  width: 100vw;
+  background-color: #85aa9f;
   color: white;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
+  align-items: center;
   padding: 20px 20px;
   z-index: 1000;
-
-  /* transform: translateY(-498px);
-  visibility: hidden;
-  
-  transform: none;
-  transition: transform 225ms cubic-bezier(0.17, 0.67, 0.83, 0.67) 0ms; */
-
   overflow: hidden;
-
   background-image: url(${bgmob});
   background-size: 100%;
   background-repeat: no-repeat;
@@ -32,11 +23,13 @@ export const MainDiv = styled.div`
 
   @media (min-width: 768px) {
     padding: 32px 32px;
+    width: 40%;
   }
 `;
 
 export const CloseBtn = styled.button`
   position: absolute;
+  padding: 0px;
   border: none;
   background-color: transparent;
   top: 20px;
@@ -47,7 +40,6 @@ export const Name = styled.p`
   font-width: 500;
   font-size: 20px;
   color: ${p => p.theme.colors.white};
-
 `;
 export const Round = styled.div`
   background-color: ${p => p.theme.colors.white};
@@ -63,9 +55,8 @@ export const Avatar = styled.svg`
   height: 24px;
 `;
 
-
 export const Logout = styled.button`
-width: 127px;
+  width: 127px;
   background-color: ${p => p.theme.colors.green};
   color: ${p => p.theme.colors.white};
   padding-left: 6px;
@@ -92,11 +83,11 @@ export const Container = styled.div`
   margin-bottom: 170px;
 `;
 export const Link = styled(NavLink)`
-padding: 0px;
-width: 127px;
-display: flex;
-align-items: center;
-justify-content: center;
+  padding: 0px;
+  width: 127px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-width: 500;
   font-size: 14px;
   margin-bottom: 28px;
@@ -114,8 +105,7 @@ justify-content: center;
     color: ${p => p.theme.colors.black};
   }
   &.active&:hover,
-  &.active&:focus  {
+  &.active&:focus {
     color: ${p => p.theme.colors.green};
   }
-
 `;

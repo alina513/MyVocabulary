@@ -16,9 +16,15 @@ export const Header = () => {
           <use xlinkHref={sprite + '#icon-logo'}></use>
         </Svg>
         <Text>VocabBuilder</Text>
-      </Logo>{isBigScreen ?
-     ( <><UserNav />
-      <UserBar /></>) : (<DesktopView/>)}
+      </Logo>
+      {isBigScreen ? (
+        <>
+          <UserNav />
+          <UserBar />
+        </>
+      ) : (
+        <DesktopView />
+      )}
     </Container>
   );
 };

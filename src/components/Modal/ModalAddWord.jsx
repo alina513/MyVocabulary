@@ -1,5 +1,3 @@
-
-
 import Modal from 'react-modal';
 import * as yup from 'yup';
 import {
@@ -27,7 +25,6 @@ import sprite from '../../assets/sprite.svg';
 import { addWord, fetchCategories } from '../../redux/words/operation';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { selectToken } from '../../redux/auth/selectors';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { selectCategories } from '../../redux/words/selectors';
@@ -74,7 +71,6 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
   };
 
   const [errorMessage, setErrorMessage] = useState('');
-  const token = useSelector(selectToken);
   const dispatch = useDispatch();
 
   const handleSubmit = async event => {
@@ -86,7 +82,7 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
       const isIrregular = event.target.elements.verb?.value;
       await schema.validate({ eng: en, ukr: ua });
 
-      dispatch(addWord({ en, ua, category, isIrregular, token }));
+      dispatch(addWord({ en, ua, category, isIrregular}));
       setIsOpenModalLogin(false);
       setErrorMessage('');
       event.target.reset();
@@ -97,8 +93,8 @@ export const ModalAddWord = ({ isOpenModalLogin, setIsOpenModalLogin }) => {
   };
 
   useEffect(() => {
-    dispatch(fetchCategories({ token }));
-  }, [dispatch, token]);
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
   const categories = useSelector(selectCategories);
   const [selectedCategory, setSelectedCategory] = useState('');

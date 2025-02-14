@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Slide from '@mui/material/Slide';
 import sprite from '../../assets/sprite.svg';
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { logOut } from '../../redux/auth/operations';
@@ -17,7 +17,7 @@ import {
   Logout,
   Svg,
   Link,
-  Container
+  Container,
 } from './MobileMenu.styled';
 import { useEffect } from 'react';
 
@@ -37,7 +37,6 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
     prevLocationRef.current = location;
   }, [location, isOpen, closeMenu]);
 
-
   // useEffect(() => {
   //   if (isOpen) {
   //     closeMenu();
@@ -50,7 +49,7 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
     dispatch(logOut());
   };
   if (!user) {
-    return null; 
+    return null;
   }
 
   return createPortal(
@@ -66,12 +65,12 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
     >
       <MainDiv>
         <Container>
-        <Name>{user.name}</Name>
-        <Round>
-          <Avatar>
-            <use xlinkHref={sprite + '#icon-avatar2'}></use>
-          </Avatar>
-        </Round>
+          <Name>{user.name}</Name>
+          <Round>
+            <Avatar>
+              <use xlinkHref={sprite + '#icon-avatar2'}></use>
+            </Avatar>
+          </Round>
         </Container>
         <CloseBtn>
           <svg
@@ -84,10 +83,10 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
           </svg>
         </CloseBtn>
         <div>
-        <Link to="/dictionary">Dictionary</Link>
-      <Link to="/recommend">Recommend</Link>
-      <Link to="/training">Training</Link>
-      </div>
+          <Link to="/dictionary">Dictionary</Link>
+          <Link to="/recommend">Recommend</Link>
+          <Link to="/training">Training</Link>
+        </div>
         <Logout type="submit" onClick={hadleLogOut}>
           Logout
           <Svg>

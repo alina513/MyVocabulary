@@ -1,10 +1,7 @@
 import Modal from 'react-modal';
 import { Edit, Delet, Wrapper, Svg, Content } from './EditwordModal.styled';
-
 import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { selectToken } from '../../redux/auth/selectors';
 import { useState } from 'react';
 import { EditWordForm } from './EditWordForm';
 import { deleteWordById } from '../../redux/words/operation';
@@ -41,13 +38,13 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData }) => {
     setIsOpenEditModal(true);
   };
 
-  const token = useSelector(selectToken);
+  
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     const id = wordData._id;
 
-    dispatch(deleteWordById({ id, token }));
+    dispatch(deleteWordById({ id }));
     setIsOpenModal(false);
   };
 

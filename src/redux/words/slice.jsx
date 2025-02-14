@@ -20,7 +20,6 @@ const initialState = {
   isLoading: false,
   categories: [],
   totalPages: 1,
-  currentPage: 1,
   filters: {
     keyword: null,
     category: null,
@@ -41,7 +40,7 @@ const wordsSlice = createSlice({
     },
     setRadio(state, action) {
       state.filters.isIrregular = action.payload;
-    }
+    },
   },
 
   extraReducers: builder => {
@@ -54,7 +53,6 @@ const wordsSlice = createSlice({
         state.isLoggedIn = false;
         state.isLoading = false;
         state.totalPages = action.payload.totalPages;
-        state.currentPage = action.payload.page;
       })
       .addCase(fetchWords.rejected, state => {
         state.isLoading = false;
@@ -77,7 +75,6 @@ const wordsSlice = createSlice({
         state.isLoggedIn = false;
         state.isLoading = false;
         state.totalPages = action.payload.totalPages;
-        state.currentPage = action.payload.page;
       })
       .addCase(fetchWordsRecommend.rejected, state => {
         state.isLoading = false;

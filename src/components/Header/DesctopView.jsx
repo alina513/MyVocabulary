@@ -24,9 +24,9 @@ export const DesktopView = () => {
           </Avatar>
         </Round>
         <ButClose onClick={() => setIsOpen(!isOpen)}>
-        <Svg>
-          <use xlinkHref={sprite + '#icon-Nav'}></use>
-        </Svg>
+          <Svg>
+            <use xlinkHref={sprite + '#icon-Nav'}></use>
+          </Svg>
         </ButClose>
       </Container>
       <MobileMenu closeMenu={() => setIsOpen(!isOpen)} isOpen={isOpen} />

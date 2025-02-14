@@ -38,10 +38,10 @@ export const Activ = styled.button`
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background-color: ${({ active }) => (active ? '#85AA9F' : '#fff')};
-  color: ${({ active }) => (active ? '#fff' : '#121417')};
+  background-color: ${props => (props.$isactive ? '#85AA9F' : '#fff')};
+  color: ${props => (props.$isactive ? '#fff' : '#121417')};
   border: 1px solid #121417;
-  &:hover {
-    background-color: ${({ active }) => (active ? '#0056b3' : '#e7e7e7')};
-  }
+  // &:hover,&:focus {
+  //   background-color: ${props => (props.$isactive ? '#0056b3' : '#e7e7e7')};
+  // }
 `;
