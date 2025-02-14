@@ -30,7 +30,7 @@ const schema = yup
       .string()
       .matches(
         /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
-        'Password must be at least 7 characters long and contain at least one digit'
+        'Password must be 7 characters: 6 letters, 1 number'
       )
       .required('Password is required'),
   })

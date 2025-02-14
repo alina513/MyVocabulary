@@ -25,13 +25,16 @@ const schema = yup
     name: yup.string().required('Name is required'),
     email: yup
       .string()
-      .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Email is not valid')
+      .matches(
+        /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
+        'Email must be: example@com.ua'
+      )
       .required('Email is required'),
     password: yup
       .string()
       .matches(
         /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
-        'Password must be at least 7 characters long and contain at least one digit'
+        'Password must be 7 characters: 6 letters, 1 number'
       )
       .required('Password is required'),
   })
@@ -55,6 +58,7 @@ export const RegisterForm = () => {
     },
     resolver: yupResolver(schema),
   });
+
   const onSubmit = data => {
     dispatch(signUp(data));
   };
@@ -69,17 +73,13 @@ export const RegisterForm = () => {
 
   const renderValidationMessage = field => {
     if (!isSubmitted) return null;
-    const value = watch(field);
     const error = errors[field];
+    const value = watch(field);
 
     if (value && !error) {
       return <SuccessMessage>Success {field}</SuccessMessage>;
     } else if (error) {
-      return (
-        <ErrorMessage>
-          Error {field}. Password must be: 6 letters, 1 number
-        </ErrorMessage>
-      );
+      return <ErrorMessage>{error.message}</ErrorMessage>;
     }
     return null;
   };

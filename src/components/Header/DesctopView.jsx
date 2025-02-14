@@ -17,7 +17,7 @@ export const DesktopView = () => {
   return (
     <>
       <Container>
-        <Name>{user.name}</Name>
+        <Name>{user?.name}</Name>
         <Round>
           <Avatar>
             <use xlinkHref={sprite + '#icon-avatar'}></use>
