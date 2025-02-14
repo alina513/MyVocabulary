@@ -12,20 +12,20 @@ export const Wrapper = styled.div`
   margin-top: 32px;
   @media screen and (min-width: 768px) {
     width: 704px;
-  height: 666px;
+  height: 616px;
   }
 
   @media screen and (min-width: 1440px) {
     padding: 18px;
     width: 1240px;
-    height: 640px;
+    height: 670px;
     margin-top: 37px;
   }
 `;
 export const Container = styled.div`
   width: 343px;
   @media screen and (min-width: 768px) {
-    width: 666px;
+    width: 704px;
   }
   @media screen and (min-width: 1440px) {
     width: 1240px;
@@ -35,16 +35,16 @@ export const Container = styled.div`
 
 export const Table = styled.table`
 box-sizing: border-box;
-  width: 343px;
+  width: 315px;
   height: 540px;
 
   @media screen and (min-width: 768px) {
-    width: 704px;
+    width: 676px;
   height: 566px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1240px;
+    width: 1204px;
     height: 540px;
     margin-right: auto;
     margin-left: auto;
@@ -57,7 +57,11 @@ box-sizing: border-box;
 export const Span = styled.span`
   display: flex;
   align-items: center;
+  gap:10px;
+  @media screen and (min-width: 1440px) {
   justify-content: space-between;
+  gap:0px;
+  }
 `;
 
 export const Th = styled.th`
