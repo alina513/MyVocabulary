@@ -25,7 +25,6 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     words: wordsReducer,
-    
   },
 
   middleware: (getDefaultMiddleware) =>

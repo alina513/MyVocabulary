@@ -6,7 +6,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-  params: null,
+  id: null,
 };
 
 const authSlice = createSlice({
@@ -15,7 +15,8 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(signUp.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        const { name, email } = action.payload;
+        state.user = { name, email };
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
@@ -23,7 +24,7 @@ const authSlice = createSlice({
         const { name, email } = action.payload;
         state.user = { name, email };
         state.token = action.payload.token;
-        state.params = action.payload.height;
+        state.id = action.payload._id;
         state.isLoggedIn = true;
       })
       .addCase(logOut.pending, state => {
@@ -42,7 +43,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         const { name, email } = action.payload;
         state.user = { name, email };
-        state.params = action.payload.height;
+        state.id = action.payload._id;
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.token = action.payload.token;

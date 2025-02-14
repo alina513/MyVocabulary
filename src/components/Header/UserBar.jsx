@@ -15,7 +15,7 @@ export const UserBar = () => {
     dispatch(logOut());
   };
   if (!user) {
-    return null; 
+    return null;
   }
   return (
     <Container>
