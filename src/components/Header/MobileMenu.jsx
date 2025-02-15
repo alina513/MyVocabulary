@@ -37,12 +37,6 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
     prevLocationRef.current = location;
   }, [location, isOpen, closeMenu]);
 
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     closeMenu();
-  //   }
-  // }, [ location, isOpen, closeMenu]);
-
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const hadleLogOut = () => {
@@ -76,7 +70,6 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
           <svg
             width={isMobileScreen ? '24px' : '32px'}
             height={isMobileScreen ? '24px' : '32px'}
-            stroke="#EFEDE8"
             onClick={closeMenu}
           >
             <use xlinkHref={sprite + '#icon-close'} />
