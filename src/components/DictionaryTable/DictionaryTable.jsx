@@ -130,7 +130,6 @@ export function DictionaryTable({ exam }) {
       }),
       columnHelper.accessor('progress', {
         header: () => <span>Progress</span>,
-        // cell: info => <CircularProgress progress={info.getValue()} />,
         cell: info => (
           <ConProcent>
             <Procent>{info.getValue()}%</Procent>
@@ -244,9 +243,6 @@ export function DictionaryTable({ exam }) {
               {table.getRowModel().rows.map(row => (
                 <Tr key={row.id}>
                   {row.getVisibleCells().map(cell => (
-                    // <Td key={cell.id}>
-                    //   {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    // </Td>
                     <Td
                       key={cell.id}
                       className={

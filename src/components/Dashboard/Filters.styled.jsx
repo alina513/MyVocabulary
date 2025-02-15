@@ -50,6 +50,7 @@ export const Container = styled.div`
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 0px;
+    margin-left: 80px;
   }
 `;
 

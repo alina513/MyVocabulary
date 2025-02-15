@@ -40,19 +40,20 @@ export const Wrapper = styled.div`
 export const Logo = styled.div`
 display: flex;
 align-items: center;
-gap: 16px;
+gap: 6px;
 margin-left: 16px;
+@media screen and (min-width: 768px){
+gap: 16px;
+}
 @media screen and (min-width: 1440px){
 display: flex;
 align-items: center;
-margin-left: 0px;
-gap: 16px;
-// margin-bottom: 64px;}
+margin-left: 0px;}
 
 `;
 export const Svg = styled.svg`
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   @media screen and (min-width: 768px) {
     width: 40px;
     height: 40px;
@@ -61,7 +62,7 @@ export const Svg = styled.svg`
 
 export const Text = styled.p`
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 133%;
   @media screen and (min-width: 768px) {
     font-weight: 600;

@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   margin-top: 32px;
   @media screen and (min-width: 768px) {
     width: 704px;
-  height: 616px;
+    height: 616px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -34,13 +34,13 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
-box-sizing: border-box;
+  box-sizing: border-box;
   width: 315px;
   height: 540px;
 
   @media screen and (min-width: 768px) {
     width: 676px;
-  height: 566px;
+    height: 566px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -57,21 +57,25 @@ box-sizing: border-box;
 export const Span = styled.span`
   display: flex;
   align-items: center;
-  gap:10px;
+  gap: 10px;
   @media screen and (min-width: 1440px) {
-  justify-content: space-between;
-  gap:0px;
+    justify-content: space-between;
+    gap: 0px;
   }
 `;
 
 export const Th = styled.th`
-box-sizing: border-box;
-padding: 16px 0px 16px 14px;
-width; 84px;
-  // height: 54px;
+  border-bottom: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
+  padding: 0px 0px 0px 2px;
+  height: 72px;
+  background-color: rgba(133, 170, 159, 0.1);
   font-weight: 500;
-  font-size: 16px;
-
+  font-size: 10px;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+    font-size: 14px;
+  }
   @media screen and (min-width: 1440px) {
     border-bottom: 1px solid #dbdbdb;
     border-right: 1px solid #dbdbdb;
@@ -86,8 +90,6 @@ width; 84px;
 `;
 
 export const Tr = styled.tr`
-box-sizing: border-box;
-  // height: 70px;
   height: 30px;
 
   &:last-child td {
@@ -101,24 +103,19 @@ box-sizing: border-box;
 
 export const Td = styled.td`
 font-weight: 500;
-font-size: 14px;
+font-size: 10px;
 color: ${p => p.theme.colors.black};
-
-&.category-exam {
-  display: none;
-}
 border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
-  padding: 10px 0px 10px 14px;
+  padding: 10px 4px 10px 4px;
 
   &:last-child {
-    border-right: none; /* Прибираємо правий бордер у останньої комірки в рядку */
+    border-right: none;
   }
 
   @media screen and (min-width: 768px) {
-    &.category-exam {
-      display: table-cell;
-    }
+  font-size: 14px;
+   padding: 10px 0px 10px 14px;}
 
   @media screen and (min-width: 1440px) {
     font-weight: 500;
@@ -152,18 +149,20 @@ export const SvgAdd = styled.svg`
 `;
 
 export const SpanAddWord = styled.span`
-display: none;
-@media screen and (min-width: 768px) {
-  display: block;}
-` 
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+`;
 
 export const SpanAdd = styled.span`
-@media screen and (min-width: 768px) {
-  font-weight: 500;
-  font-size: 16px;
-  display: block;
-  align-items: center;
-  gap: 8px;}
+  @media screen and (min-width: 768px) {
+    font-weight: 500;
+    font-size: 16px;
+    display: block;
+    align-items: center;
+    gap: 8px;
+  }
   @media screen and (min-width: 1440px) {
     display: flex;
   }
@@ -182,13 +181,14 @@ export const ButtonAdd = styled.button`
 `;
 
 export const ConProcent = styled.div`
-display: flex;
-gap: 7px;
-`
-export const Procent = styled.p`
-display: none;
-@media screen and (min-width: 1440px) {
   display: flex;
-font-weight: 500;
-font-size: 22px;}
-`
+  gap: 7px;
+`;
+export const Procent = styled.p`
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    font-weight: 500;
+    font-size: 22px;
+  }
+`;
