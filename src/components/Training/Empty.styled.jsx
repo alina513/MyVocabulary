@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   margin-bottom: 40px;
   display: flex;
   gap: 32px;
-  padding: 10px;
+  padding: 20px;
   @media screen and (max-width: 767px) {
     max-width: 581px;
     margin-top: 140px;
@@ -18,12 +18,14 @@ export const Wrapper = styled.div`
 `;
 
 export const BtnWrapper = styled.div`
-display: block;
-margin-left: auto;
-  margin-right: auto;
-@media screen and (min-width: 767px) {
   display: flex;
-  gap: 10px;}
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 767px) {
+    flex-direction: row;
+    display: flex;
+    gap: 10px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -47,34 +49,31 @@ export const Img = styled.img`
   margin: 0 auto;
 `;
 
-export const Btn = styled.button`   cursor: pointer;
-        width: 203px;
-        height: 56px;
-        margin-top: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 14px;
-        background-color: ${p => p.theme.colors.green};
-        color: ${p => p.theme.colors.white};
-        border: none;
-        border-radius: 30px;
-      
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 28px;
-      }
-      
-      &:hover,
-      &:focus {
-        background-color: ${p => p.theme.colors.white};
-        color: ${p => p.theme.colors.black};
-        border: 1px solid  ${p => p.theme.colors.green};
-      `;
+export const Btn = styled.button`
+  width: 203px;
+  height: 56px;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  background-color: ${p => p.theme.colors.green};
+  color: ${p => p.theme.colors.white};
+  border: none;
+  border-radius: 30px;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.white};
+    color: ${p => p.theme.colors.black};
+    border: 1px solid ${p => p.theme.colors.green};
+  }
+`;
 
 export const BtnCancel = styled(Link)`
-      box-sizing: border-box;
-            cursor: pointer;
             width: 203px;
             height: 56px;
             margin-top: 24px;
@@ -89,8 +88,7 @@ export const BtnCancel = styled(Link)`
             font-size: 18px;
             font-weight: 600;
             line-height: 28px;
-          }
           
           &: hover, &: focus {
-            color:${p => p.theme.colors.green};
+            color:${p => p.theme.colors.green};}
           `;

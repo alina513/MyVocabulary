@@ -32,7 +32,6 @@ position: relative;
 box-sizing: border-box;
 width: 343px;
 height: 195px;
-// padding: 22px 22px;
 border-bottom: 1px solid #dbdbdb;
 border-radius: 8px 8px 0 0;
 @media screen and (min-width: 768px) {

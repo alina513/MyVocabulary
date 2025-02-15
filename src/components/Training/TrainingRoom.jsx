@@ -85,7 +85,6 @@ export const TrainingRoom = () => {
       {tasks.length > 0 ? (
         <>
           <Con>
-            {/* <CircularProgress progress={progress} /> */}
             <CircularProgress
           size={58}
           strokeWidth={5}
@@ -122,11 +121,6 @@ export const TrainingRoom = () => {
               </ContainerInputUkr>
               <ContainerInputEng>
                 <WrapperLang>
-                  {/* <Text>
-              {tasks.length > 0
-                ? tasks[currentTaskIndex].en
-                : 'No tasks available'}
-            </Text> */}
                   {tasks.length > 0 && tasks[currentTaskIndex] ? (<Text>
                     {tasks[currentTaskIndex].en}</Text>
                   ) : (

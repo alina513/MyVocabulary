@@ -85,7 +85,6 @@ export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
   };
 
   return (
-    <>
       <Modal
         isOpen={isOpenModal}
         onRequestClose={() => {
@@ -131,6 +130,5 @@ export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
           </ButtonContainer>
         </Wrapper>
       </Modal>
-    </>
   );
 };

@@ -145,7 +145,7 @@ export function DictionaryTable({ exam }) {
         ),
       }),
       columnHelper.accessor('status', {
-        header: () => <Hidden>Status</Hidden>,
+        header: () => <span>Edit</span>,
         cell: info => (
           <Button onClick={() => handleStatusClick(info.row.original)}>
             {info.getValue() || '...'}
@@ -186,7 +186,7 @@ export function DictionaryTable({ exam }) {
         header: () => <Hidden>Status</Hidden>,
         cell: info => (
           <ButtonAdd
-            type="submit"
+            type="button"
             onClick={() => handleAddRecommend(info.row.original._id)}
           >
             {info.getValue() || (
@@ -240,25 +240,38 @@ export function DictionaryTable({ exam }) {
               ))}
             </thead>
             <tbody>
-              {table.getRowModel().rows.map(row => (
-                <Tr key={row.id}>
-                  {row.getVisibleCells().map(cell => (
-                    <Td
-                      key={cell.id}
-                      className={
-                        exam && cell.column.id === 'category'
-                          ? 'category-exam'
-                          : ''
-                      }
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </Td>
-                  ))}
-                </Tr>
-              ))}
+              {value.length === 0 ? (
+                <tr>
+                  <Td
+                    colSpan={columns.length}
+                    style={{ textAlign: 'center', padding: '20px' }}
+                  >
+                    No words found. Try adjusting the filters or adding new
+                    words using button or go to recommend and add word from
+                    there.
+                  </Td>
+                </tr>
+              ) : (
+                table.getRowModel().rows.map(row => (
+                  <Tr key={row.id}>
+                    {row.getVisibleCells().map(cell => (
+                      <Td
+                        key={cell.id}
+                        className={
+                          exam && cell.column.id === 'category'
+                            ? 'category-exam'
+                            : ''
+                        }
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </Td>
+                    ))}
+                  </Tr>
+                ))
+              )}
             </tbody>
           </Table>
         )}

@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.form`
-box-sizing: border-box;
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-  
-
-  @media screen and (min-width: 768px) {}
-  @media screen and (min-width: 1440px) {}
 `;
 
 export const Edit = styled.button`

@@ -14,7 +14,7 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData }) => {
     overlay: {
       backgroundColor: 'transparent',
       width: '100wv',
-      height: '100hv'
+      height: '100hv',
     },
     content: {
       boxSizing: 'border-box',
@@ -38,12 +38,10 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData }) => {
     setIsOpenEditModal(true);
   };
 
-  
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     const id = wordData._id;
-
     dispatch(deleteWordById({ id }));
     setIsOpenModal(false);
   };
@@ -58,14 +56,14 @@ export const EditWordModal = ({ isOpenModal, setIsOpenModal, wordData }) => {
         style={customStyles}
         contentLabel="More info modal"
       >
-        <Wrapper onSubmit={handleDelete}>
+        <Wrapper>
           <Edit onClick={handleEditClick} type="button">
             <Svg>
               <use xlinkHref={sprite + '#icon-pen'}></use>
             </Svg>
             Edit
           </Edit>
-          <Delet type="submit">
+          <Delet onClick={handleDelete}>
             <Svg>
               <use xlinkHref={sprite + '#icon-trash'}></use>
             </Svg>

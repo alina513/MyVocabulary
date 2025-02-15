@@ -67,14 +67,21 @@ export const Span = styled.span`
 export const Th = styled.th`
   border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
-  padding: 0px 0px 0px 2px;
+  padding: 0px 0px 0px 3px;
   height: 72px;
   background-color: rgba(133, 170, 159, 0.1);
   font-weight: 500;
   font-size: 10px;
+  &:first-child {
+    padding-left: 6px;
+  }
   @media screen and (min-width: 768px) {
+    padding: 0px 12px 0px 12px;
     text-align: left;
     font-size: 14px;
+    &:first-child {
+      padding-left: 12px;
+    }
   }
   @media screen and (min-width: 1440px) {
     border-bottom: 1px solid #dbdbdb;
@@ -86,6 +93,9 @@ export const Th = styled.th`
     font-weight: 500;
     font-size: 20px;
     color: ${p => p.theme.colors.black};
+    &:first-child {
+      padding-left: 22px;
+    }
   }
 `;
 
@@ -102,10 +112,10 @@ export const Tr = styled.tr`
 `;
 
 export const Td = styled.td`
-font-weight: 500;
-font-size: 10px;
-color: ${p => p.theme.colors.black};
-border-bottom: 1px solid #dbdbdb;
+  font-weight: 500;
+  font-size: 10px;
+  color: ${p => p.theme.colors.black};
+  border-bottom: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
   padding: 10px 4px 10px 4px;
 
@@ -114,13 +124,14 @@ border-bottom: 1px solid #dbdbdb;
   }
 
   @media screen and (min-width: 768px) {
-  font-size: 14px;
-   padding: 10px 0px 10px 14px;}
+    font-size: 14px;
+    padding: 10px 0px 10px 14px;
+  }
 
   @media screen and (min-width: 1440px) {
     font-weight: 500;
-font-size: 20px;
-padding:  0px 22px 0px 22px;
+    font-size: 20px;
+    padding: 0px 22px 0px 22px;
   }
 `;
 export const Button = styled.button`

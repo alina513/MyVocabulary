@@ -6,7 +6,7 @@ export const Statistics = () => {
   const words = useSelector(selectTasks);
   return (
     <Stat>
-      To study:<Span>{words?.length === 0 ? 0 : words.length/2}</Span>
+      To study:<Span>{words?.length === 0 ? 0 : parseInt(words.length/2)}</Span>
     </Stat>
   );
 };
