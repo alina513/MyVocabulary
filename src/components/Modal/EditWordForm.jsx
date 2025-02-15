@@ -48,13 +48,8 @@ export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      // padding: '48px 64px 48px 64px',
-      // paddingLeft: '64px',
-      // width: '627px',
-      // height: '345px',
       borderRadius: '30px',
       border: 'none',
-      // backgroundColor: '#85AA9F',
       padding: '0px 0px 0px 0px',
     },
   };
@@ -94,7 +89,7 @@ export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
         contentLabel="More info modal"
       >
         <Wrapper onSubmit={handleSubmit}>
-          <ButtonClose onClick={() => setIsOpenModal(false)}>
+          <ButtonClose onClick={() => setIsOpenModal(false)} type='button'>
             <Close>
               <use xlinkHref={sprite + '#icon-close'}></use>
             </Close>
@@ -120,7 +115,6 @@ export const EditWordForm = ({ isOpenModal, setIsOpenModal, wordData }) => {
               <Lang>English</Lang>
             </ContainerLang>
           </InputContainer>
-          {/* <ErrorMessage>Write on language that set on input</ErrorMessage> */}
           {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
           <ButtonContainer>
             <AddButton type="submit">Save</AddButton>

@@ -3,19 +3,20 @@ import styled from 'styled-components';
 export const Wrapper = styled.form`
   color: ${p => p.theme.colors.white};
   position: relative;
-  padding: 48px 64px;
+  padding: 48px 21px;
   width: 342px;
-  height: 359px;
-  background-color: #85AA9F;
+  height: 512px;
+  background-color: #85aa9f;
   border-radius: 30px;
   @media screen and (min-width: 768px) {
+    padding: 48px 64px;
     width: 627px;
     height: 345px;
   }
   @media screen and (min-width: 1440px) {
     padding: 48px 64px;
-      width: 627px;
-      height: 345px;
+    width: 627px;
+    height: 345px;
   }
 `;
 
@@ -53,14 +54,17 @@ export const Input = styled.input`
   box-sizing: border-box;
   border: 1px solid rgba(252, 252, 252, 0.3);
   border-radius: 15px;
-  padding: 16px 246px 16px 18px;
-  width: 354px;
+  width: 300px;
   height: 56px;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   background-color: ${p => p.theme.colors.green};
   color: ${p => p.theme.colors.white};
+  @media screen and (min-width: 768px) {
+    width: 354px;
+    padding: 16px 246px 16px 18px;
+  }
 `;
 export const Lang = styled.p`
   font-weight: 500;
@@ -117,8 +121,8 @@ export const ButtonClose = styled.button`
   display: block;
   border: none;
   position: absolute;
-  right: -50px;
-  top: -50px;
+  right: 10px;
+  top: 10px;
 `;
 
 export const Close = styled.svg`
@@ -150,9 +154,12 @@ export const ContainerLang = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-left: 0px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   @media screen and (min-width: 768px) {
     margin-left: 32px;
+     margin-bottom: 0px;
+  margin-top: 0px;
   }
 `;
 
@@ -161,13 +168,20 @@ export const InputContainer = styled.div`
   margin-top: 16px;
   @media screen and (min-width: 768px) {
     display: flex;
-
   }
 `;
 export const ButtonContainer = styled.div`
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   margin-top: 32px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 32px;
+  }
 `;
 
 export const RadioText = styled.p`
