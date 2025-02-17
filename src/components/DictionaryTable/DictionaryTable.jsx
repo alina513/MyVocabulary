@@ -14,7 +14,6 @@ import {
   Table,
   Svg,
   Span,
-  Hidden,
   SvgAdd,
   SpanAdd,
   ButtonAdd,
@@ -183,7 +182,7 @@ export function DictionaryTable({ exam }) {
       }),
 
       columnHelper.accessor('status', {
-        header: () => <Hidden>Status</Hidden>,
+        header: () => <Span>Add</Span>,
         cell: info => (
           <ButtonAdd
             type="button"
@@ -281,12 +280,13 @@ export function DictionaryTable({ exam }) {
           wordData={selectedRowData}
         />
       </Wrapper>
-
-      <Pagination
-        totalPages={totalPages}
-        page={currentPage}
-        onPageChange={handlePageChange}
-      />
+      {totalPages > 1 && (
+        <Pagination
+          totalPages={totalPages}
+          page={currentPage}
+          onPageChange={handlePageChange}
+        />
+      )}
     </>
   );
 }

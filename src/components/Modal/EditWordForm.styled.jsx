@@ -76,6 +76,9 @@ export const AddButton = styled.button`
   padding: 12px 60px;
   width: 158px;
   height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   font-weight: 700;
   font-size: 18px;
@@ -96,9 +99,12 @@ export const AddButton = styled.button`
 export const CancelButton = styled.button`
   border: 1px solid rgba(252, 252, 252, 0.4);
   border-radius: 30px;
-  padding: 12px 45px;
+  padding: 12px 60px;
   width: 158px;
   height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
   font-size: 18px;
   line-height: 156%;
@@ -154,12 +160,12 @@ export const ContainerLang = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   @media screen and (min-width: 768px) {
     margin-left: 32px;
-     margin-bottom: 0px;
-  margin-top: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
 `;
 

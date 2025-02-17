@@ -2,10 +2,8 @@ import React from 'react';
 import { Wrapper, List, Button, Activ } from './Pagination.styled';
 
 const Pagination = ({ totalPages, page, onPageChange }) => {
-
   const handlePageChange = newPage => {
-      onPageChange(newPage);
-    
+    onPageChange(newPage);
   };
 
   const renderPageNumbers = () => {

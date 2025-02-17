@@ -1,12 +1,12 @@
 import { Span, Stat } from './Statistics.styled';
 import { useSelector } from 'react-redux';
-import { selectTasks } from '../../redux/words/selectors';
+import { selectWords } from '../../redux/words/selectors';
 
 export const Statistics = () => {
-  const words = useSelector(selectTasks);
+  const words = useSelector(selectWords);
   return (
     <Stat>
-      To study:<Span>{words?.length === 0 ? 0 : parseInt(words.length/2)}</Span>
+      To study:<Span>{words?.length === 0 ? 0 : words.length}</Span>
     </Stat>
   );
 };

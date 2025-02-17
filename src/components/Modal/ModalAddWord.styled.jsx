@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Wrapper = styled.form`
   color: ${p => p.theme.colors.white};
@@ -6,15 +6,15 @@ export const Wrapper = styled.form`
   width: 343px;
   height: 642px;
   padding: 48px 16px;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     width: 627px;
     height: 621px;
     padding: 48px 64px;
   }
-  @media screen and (min-width: 1440px){
+  @media screen and (min-width: 1440px) {
     width: 648px;
-  height: 642px;
-  padding: 48px 64px;
+    height: 642px;
+    padding: 48px 64px;
   }
 `;
 
@@ -24,13 +24,12 @@ export const Title = styled.h2`
   line-height: 117%;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     font-weight: 600;
-  font-size: 40px;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
-
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
   }
 `;
 
@@ -40,12 +39,12 @@ export const Text = styled.p`
   line-height: 150%;
   color: rgba(252, 252, 252, 0.8);
   margin-bottom: 16px;
-  @media screen and (min-width: 768px){
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 150%;
-  color: rgba(252, 252, 252, 0.8);
-  margin-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    color: rgba(252, 252, 252, 0.8);
+    margin-bottom: 32px;
   }
 `;
 export const Select = styled.select`
@@ -61,7 +60,7 @@ export const Select = styled.select`
   line-height: 150%;
   background-color: ${p => p.theme.colors.green};
   color: ${p => p.theme.colors.white};
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     box-sizing: border-box;
     display: flex;
     border: 1px solid rgba(252, 252, 252, 0.3);
@@ -91,17 +90,17 @@ export const Input = styled.input`
   color: ${p => p.theme.colors.white};
   @media screen and (min-width: 768px) {
     display: flex;
-  box-sizing: border-box;
-  border: 1px solid rgba(252, 252, 252, 0.3);
-  border-radius: 15px;
-  padding: 16px 246px 16px 18px;
-  width: 354px;
-  height: 56px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
-  background-color: ${p => p.theme.colors.green};
-  color: ${p => p.theme.colors.white};
+    box-sizing: border-box;
+    border: 1px solid rgba(252, 252, 252, 0.3);
+    border-radius: 15px;
+    padding: 16px 246px 16px 18px;
+    width: 354px;
+    height: 56px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    background-color: ${p => p.theme.colors.green};
+    color: ${p => p.theme.colors.white};
   }
 `;
 export const Lang = styled.p`
@@ -127,16 +126,16 @@ export const AddButton = styled.button`
   }
   @media screen and (min-width: 768px) {
     border-radius: 30px;
-  padding: 14px 104px;
-  width: 245px;
-  height: 56px;
-  border: none;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 156%;
-  background-color: ${p => p.theme.colors.white};
-  color: ${p => p.theme.colors.black};
-  margin-riight: 10px;
+    padding: 14px 104px;
+    width: 245px;
+    height: 56px;
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    background-color: ${p => p.theme.colors.white};
+    color: ${p => p.theme.colors.black};
+    margin-riight: 10px;
   }
 `;
 export const CancelButton = styled.button`
@@ -157,20 +156,20 @@ export const CancelButton = styled.button`
   }
   @media screen and (min-width: 768px) {
     border: 1px solid rgba(252, 252, 252, 0.4);
-  border-radius: 30px;
-  padding: 14px 92px;
-  width: 245px;
-  height: 56px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 156%;
-  background-color: ${p => p.theme.colors.green};
-  color: ${p => p.theme.colors.white};
-  &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.black};
-    background-color: ${p => p.theme.colors.white};
-  }
+    border-radius: 30px;
+    padding: 14px 92px;
+    width: 245px;
+    height: 56px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    background-color: ${p => p.theme.colors.green};
+    color: ${p => p.theme.colors.white};
+    &:hover,
+    &:focus {
+      color: ${p => p.theme.colors.black};
+      background-color: ${p => p.theme.colors.white};
+    }
   }
 `;
 export const ButtonClose = styled.button`
@@ -183,21 +182,19 @@ export const ButtonClose = styled.button`
   top: 0px;
   @media screen and (min-width: 768px) {
     margin-left: auto;
-  background-color: #85aa9f;
-  display: block;
-  border: none;
-  position: absolute;
-  right: 0px;
-  top: 0px;
+    background-color: #85aa9f;
+    display: block;
+    border: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
   }
   @media screen and (min-width: 1440px) {
     margin-left: auto;
-  background-color: #85aa9f;
-  display: block;
-  border: none;
-  position: absolute;
-  // right: -28px;
-  // top: -28px;
+    background-color: #85aa9f;
+    display: block;
+    border: none;
+    position: absolute;
   }
 `;
 
@@ -206,8 +203,8 @@ export const Close = styled.svg`
   height: 32px;
 `;
 
-export const Radio = styled.input.attrs({type: "radio"})`
-display: flex;
+export const Radio = styled.input.attrs({ type: 'radio' })`
+  display: flex;
   align-items: center;
   cursor: pointer;
   width: 24px;
@@ -217,13 +214,13 @@ display: flex;
   color: ${p => p.theme.colors.black};
   background-color: transparent;
   border-radius: 50%;
-  border: 1px solid  ${p => p.theme.colors.white};
+  border: 1px solid ${p => p.theme.colors.white};
   appearance: none;
 
   &:checked {
-    background-color: ${p => p.theme.colors.white};;
+    background-color: ${p => p.theme.colors.white};
     color: ${p => p.theme.colors.black};
-    border: 2px solid  ${p => p.theme.colors.white};
+    border: 2px solid ${p => p.theme.colors.white};
     background-clip: content-box;
     padding: 3px;
   }
@@ -247,9 +244,9 @@ export const SvgLang = styled.svg`
 `;
 
 export const ContainerLang = styled.div`
-position: absolute;
-top: -40px;
-right: 220px;
+  position: absolute;
+  top: -40px;
+  left: -25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,22 +254,22 @@ right: 220px;
   margin-left: 32px;
   @media screen and (min-width: 768px) {
     position: static;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-left: 32px;}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-left: 32px;
+  }
 `;
 
 export const InputContainer = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   margin-top: 94px;
   @media screen and (min-width: 768px) {
     position: static;
     display: flex;
-  margin-top: 16px;
-
+    margin-top: 16px;
   }
 `;
 export const ButtonContainer = styled.div`

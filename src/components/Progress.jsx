@@ -1,12 +1,10 @@
-
-
 export const CircularProgress = ({
   size,
   strokeWidth,
   progress,
-  color1 = "#85AA9F",
-  color2 = "#b7dfd3",
-  color3 = "#ffffff",
+  color1 = '#85AA9F',
+  color2 = '#b7dfd3',
+  color3 = '#ffffff',
   withText = false,
   text,
 }) => {

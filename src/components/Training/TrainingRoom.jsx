@@ -28,7 +28,7 @@ import { Empty } from './Empty';
 
 export const TrainingRoom = () => {
   const tasks = useSelector(selectTasks);
-  const [currentTaskIndex, setCurrentTaskIndex] = useState(tasks.length/2);
+  const [currentTaskIndex, setCurrentTaskIndex] = useState(tasks.length / 2);
   const [translation, setTranslation] = useState('');
   const [answers, setAnswers] = useState([]);
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -58,8 +58,6 @@ export const TrainingRoom = () => {
     }
   };
 
-  
-
   const handleSubmit = event => {
     event.preventDefault();
     const currentTask = tasks[currentTaskIndex];
@@ -75,7 +73,7 @@ export const TrainingRoom = () => {
       setAnswers(updatedAnswers);
       setTranslation('');
       setCurrentTaskIndex(prevIndex => (prevIndex + 1) % tasks.length);
-      dispatch(addAnswers({ data: updatedAnswers}));
+      dispatch(addAnswers({ data: updatedAnswers }));
       setIsOpenModal(true);
     }
   };
@@ -86,11 +84,11 @@ export const TrainingRoom = () => {
         <>
           <Con>
             <CircularProgress
-          size={58}
-          strokeWidth={5}
-          progress={progress}
-          withText={true}
-        />
+              size={58}
+              strokeWidth={5}
+              progress={progress}
+              withText={true}
+            />
           </Con>
           <form onSubmit={handleSubmit}>
             <Container>
@@ -110,7 +108,7 @@ export const TrainingRoom = () => {
                     </Svg>
                   </ContainerLang>
                 </WrapperLang>
-                {currentTaskIndex < tasks.length  - 1 && (
+                {currentTaskIndex < tasks.length - 1 && (
                   <Next type="button" onClick={handleNextTask}>
                     Next
                     <SvgNext>
@@ -121,8 +119,8 @@ export const TrainingRoom = () => {
               </ContainerInputUkr>
               <ContainerInputEng>
                 <WrapperLang>
-                  {tasks.length > 0 && tasks[currentTaskIndex] ? (<Text>
-                    {tasks[currentTaskIndex].en}</Text>
+                  {tasks.length > 0 && tasks[currentTaskIndex] ? (
+                    <Text>{tasks[currentTaskIndex].en}</Text>
                   ) : (
                     <Text>No tasks available</Text>
                   )}
@@ -146,7 +144,7 @@ export const TrainingRoom = () => {
           />
         </>
       ) : (
-        <Empty/>
+        <Empty />
       )}
     </>
   );

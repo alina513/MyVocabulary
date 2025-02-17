@@ -14,7 +14,6 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from '../redux/auth/slice';
 import { wordsReducer } from '../redux/words/slice';
 
-
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -27,7 +26,7 @@ export const store = configureStore({
     words: wordsReducer,
   },
 
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

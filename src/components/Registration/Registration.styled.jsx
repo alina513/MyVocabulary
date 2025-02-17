@@ -38,18 +38,18 @@ export const Wrapper = styled.div`
   }
 `;
 export const Logo = styled.div`
-display: flex;
-align-items: center;
-gap: 6px;
-margin-left: 16px;
-@media screen and (min-width: 768px){
-gap: 16px;
-}
-@media screen and (min-width: 1440px){
-display: flex;
-align-items: center;
-margin-left: 0px;}
-
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 16px;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    align-items: center;
+    margin-left: 0px;
+  }
 `;
 export const Svg = styled.svg`
   width: 24px;

@@ -46,15 +46,18 @@ export const WellDoneModal = ({ isOpenModal, setIsOpenModal }) => {
         isOpen={isOpenModal}
         onRequestClose={() => {
           setIsOpenModal(false);
-          navigate('/dictionary')
+          navigate('/dictionary');
         }}
         style={customStyles}
         contentLabel="More info modal"
       >
         <Container>
-          <ButtonClose onClick={() => {setIsOpenModal(false);
-            navigate('/dictionary')
-          } }>
+          <ButtonClose
+            onClick={() => {
+              setIsOpenModal(false);
+              navigate('/dictionary');
+            }}
+          >
             <Close>
               <use xlinkHref={sprite + '#icon-close'}></use>
             </Close>

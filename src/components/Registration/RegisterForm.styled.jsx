@@ -74,8 +74,8 @@ export const Input = styled.input`
       p['data-is-valid']
         ? p.theme.colors.green
         : p['data-has-error']
-        ? p.theme.colors.red
-        : 'rgba(18, 20, 23, 0.1)'};
+          ? p.theme.colors.red
+          : 'rgba(18, 20, 23, 0.1)'};
 
   background-color: rgba(133, 170, 159, 0.1);
   margin-bottom: 14px;
@@ -102,8 +102,8 @@ export const Input = styled.input`
         p['data-is-valid']
           ? p.theme.colors.green
           : p['data-has-error']
-          ? p.theme.colors.red
-          : 'rgba(18, 20, 23, 0.1)'};
+            ? p.theme.colors.red
+            : 'rgba(18, 20, 23, 0.1)'};
 
     background-color: rgba(133, 170, 159, 0.1);
     margin-bottom: 18px;
